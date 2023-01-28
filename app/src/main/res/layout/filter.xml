@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:padding="30dp"
+    android:layout_height="match_parent">
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/filter_background"
+                android:gravity="center"
+                android:paddingVertical="10dp"
+                android:paddingHorizontal="30dp"
+                android:textSize="20dp"
+                android:layout_marginEnd="20dp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/montserrat_bold"
+                android:text="All"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/filter_background"
+                android:gravity="center"
+                android:layout_marginEnd="20dp"
+                android:paddingVertical="10dp"
+                android:paddingHorizontal="30dp"
+                android:textSize="20dp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/montserrat_bold"
+                android:text="Categorie 1"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/filter_background"
+                android:gravity="center"
+                android:paddingVertical="10dp"
+                android:paddingHorizontal="30dp"
+                android:textSize="20dp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/montserrat_bold"
+                android:text="Categorie 2"/>
+        </RadioGroup>
+    </HorizontalScrollView>
+
+</LinearLayout>
