@@ -3,11 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/white"
     android:layout_height="match_parent"
     tools:context=".views.login.LoginView">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <ImageView
             android:id="@+id/imageView"
@@ -65,7 +66,7 @@
                 android:background="@drawable/edit_text_background"
                 android:elevation="2dp"
                 android:fontFamily="@font/montserrat_regular"
-                android:hint="Password"
+                android:hint="@string/password"
                 android:inputType="textPassword"
                 android:paddingHorizontal="20dp"
                 android:paddingVertical="15dp"
@@ -110,16 +111,21 @@
         </LinearLayout>
 
         <Button
+            android:id="@+id/loginBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
             android:layout_marginTop="44dp"
             android:background="@drawable/filter_background"
-            android:layout_marginHorizontal="30dp"
-            android:paddingVertical="8dp"
             android:fontFamily="@font/montserrat_bold"
-            android:textSize="20sp"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
-            android:text="Login"
-            tools:layout_editor_absoluteX="0dp" />
+            android:gravity="center"
+            android:onClick="login"
+            android:paddingVertical="10dp"
+            android:text="@string/login"
+            android:textColor="@color/white"
+            android:textSize="26sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
