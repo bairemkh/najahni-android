@@ -119,7 +119,6 @@
             android:background="@drawable/filter_background"
             android:fontFamily="@font/montserrat_bold"
             android:gravity="center"
-            android:onClick="login"
             android:paddingVertical="10dp"
             android:text="@string/login"
             android:textColor="@color/white"
