@@ -12,4 +12,7 @@ interface IUserRetrofit {
         @Field("email") email: String,
         @Field("password") password: String
     ): Call<ResponseBody>
+
+    @GET("user/profile")
+    fun getProfile(@Header("Authorization") authorization: String): Call<ResponseBody>
 }

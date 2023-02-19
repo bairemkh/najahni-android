@@ -13,32 +13,30 @@ data class User(var _id:String?, var firstname:String, var lastname:String, var 
                 var courses:List<String>?)
 object CurrentUser{
     var isConnected:Boolean = false
-    private var _id:String? = null
-    private var firstname:String? = null
-    private var lastname:String? = null
-    private var email: String? = null
-    private var password: String? = null
-    private var role: Role? = null
-    private var fields: List<Field>? = null
-    private var image: String? = null
-    private var isVerified: Boolean? = null
+     var _id:String? = null
+     var firstname:String? = null
+     var lastname:String? = null
+     var email: String? = null
+     var password: String? = null
+     var role: Role? = null
+     var fields: List<Field>? = null
+     var image: String? = null
+     var isVerified: Boolean? = null
     var otp: String? = null
-    private var courses:List<String>? = null
-    fun setCurrentUser(_id:String?,firstname:String,lastname:String,email: String,password: String,
-                       role: Role,fields: List<Field>,image: String,isVerified: Boolean,otp: String,
-                       courses:List<String>?){
+    var courses:List<String>? = null
+    fun setCurrentUser(user:User){
         this.isConnected = true
-        this._id=_id
-        this.email=email
-        this.firstname=firstname
-        this.lastname=lastname
-        this.password=password
-        this.role=role
-        this.fields=fields
-        this.image=image
-        this.isVerified=isVerified
-        this.otp=otp
-        this.courses=courses
+        this._id=user._id
+        this.email=user.email
+        this.firstname=user.firstname
+        this.lastname=user.lastname
+        this.password=user.password
+        this.role=user.role
+        this.fields=user.fields
+        this.image=user.image
+        this.isVerified=user.isVerified
+        this.otp=user.otp
+        this.courses=user.courses
     }
     fun getCurrentUser():User?{
         return if (isConnected)
