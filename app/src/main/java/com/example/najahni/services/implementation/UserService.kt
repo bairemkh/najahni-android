@@ -1,8 +1,11 @@
 package com.example.najahni.services.implementation
 
+import android.content.Context.MODE_PRIVATE
+import android.content.SharedPreferences
 import android.util.Log
 import com.example.najahni.models.User
 import com.example.najahni.services.retrofitInterfaces.IUserRetrofit
+import com.example.najahni.utils.ApiResponseHandling
 import com.example.najahni.utils.Consts.retrofit
 import com.example.najahni.utils.IService
 import com.google.gson.Gson
@@ -31,22 +34,23 @@ object UserService: IService<User> {
     override fun delete(id: String) {
         TODO("Not yet implemented")
     }
-    fun login(email:String,password:String){
+    fun login(email:String,password:String,responseHandler:ApiResponseHandling){
         val response = api.login(email, password).enqueue(object :Callback<ResponseBody>{
             override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
-                Log.e("response","${response.body()!!.string()}")
                 if (response.code()==200) {
-                    val json = "{\"data\":\"simpledata\",\"name\":\"test\"}"
-                    Log.e("response",json)
+                    val body=response.body()?.string().orEmpty()
                     val gson = Gson()
-                    val jsonElement: JsonElement = gson.fromJson(json, JsonElement::class.java)
+                    val jsonElement: JsonElement = gson.fromJson(body, JsonElement::class.java)
                     val jsonObject = jsonElement.asJsonObject
-                    Log.e("response", jsonObject.get("data").asString)
-                }
+                    Log.i("response", jsonObject.get("data").asString)
+                    responseHandler.onSuccess(jsonObject.get("data").asString)
+                }else
+                    responseHandler.onError(response.code(),response.message())
             }
 
             override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
                 Log.e("error","${t.message}")
+                responseHandler.onFailure(t.message.toString())
             }
 
         })
