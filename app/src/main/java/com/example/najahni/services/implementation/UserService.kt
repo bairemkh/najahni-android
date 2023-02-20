@@ -3,6 +3,7 @@ package com.example.najahni.services.implementation
 import android.content.Context.MODE_PRIVATE
 import android.content.SharedPreferences
 import android.util.Log
+import com.example.najahni.models.CurrentUser
 import com.example.najahni.models.User
 import com.example.najahni.models.enums.Field
 import com.example.najahni.models.enums.Role
@@ -46,8 +47,15 @@ object UserService : IService<User> {
                     val gson = Gson()
                     val jsonElement: JsonElement = gson.fromJson(body, JsonElement::class.java)
                     val jsonObject = jsonElement.asJsonObject
-                    Log.i("response", jsonObject.get("data").asString)
-                    responseHandler.onSuccess(jsonObject.get("data").asString)
+                    getUserProfile(jsonObject.get("data").asString){ code,user->
+                        if(code == 200){
+                            Log.e("user","user is $user")
+                            CurrentUser.setCurrentUser(user!!)
+                            responseHandler.onSuccess(jsonObject.get("data").asString)
+                        }else
+                            responseHandler.onError(response.code(), "Auth Problem")
+                    }
+
                 } else
                     responseHandler.onError(response.code(), response.message())
             }
@@ -59,7 +67,7 @@ object UserService : IService<User> {
         })
     }
 
-    fun getUserProfile(token: String, responseHandle: ApiResponseHandling) {
+    fun getUserProfile(token: String, returningResponse: (Int,User?)->Unit) {
         val response = api.getProfile(token).enqueue(object : Callback<ResponseBody> {
             override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
                 if (response.isSuccessful) {
@@ -68,14 +76,15 @@ object UserService : IService<User> {
                     val jsonElement: JsonElement = gson.fromJson(body, JsonElement::class.java)
                     val jsonObject = jsonElement.asJsonObject
                     val user = makeUserFromJson(jsonObject.get("data").asJsonObject)
-                    Log.e("test", "user = $user")
-                    responseHandle.onSuccess(user)
-                } else
-                    responseHandle.onError(response.code(), response.message())
+                    returningResponse(response.code(),user)
+                } else {
+                    Log.e("response 302"," ====> ${response.body()?.string().orEmpty()}")
+                    returningResponse(response.code(),null)
+                }
             }
 
             override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
-                responseHandle.onFailure(t.message.toString())
+                returningResponse(500,null)
             }
         })
     }

@@ -31,27 +31,12 @@ class LoginView : AppCompatActivity() {
             )
         }
         viewModel.loginSuccess.observe(this, Observer {
-            if (it) {
-                UserService.getUserProfile(viewModel.token.value.orEmpty(),object :ApiResponseHandling{
-                    override fun onSuccess(data: Any) {
-                        val user = data as User
-                        CurrentUser.setCurrentUser(user)
-                        val sharedPreferences: SharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE)
-                        SharedPrefsNajahni.setToken(sharedPreferences,viewModel.token.value.orEmpty())
-                    }
-
-                    override fun onError(errorCode: Int, errorMessage: String) {
-                        Toast.makeText(this@LoginView,viewModel.message.value,Toast.LENGTH_LONG).show()
-                    }
-
-                    override fun onFailure(errorMessage: String) {
-                        Toast.makeText(this@LoginView,viewModel.message.value,Toast.LENGTH_LONG).show()
-                    }
-
-                })
-                Toast.makeText(this, "Connected", Toast.LENGTH_LONG).show()
-            } else
-                Toast.makeText(this, viewModel.message.value, Toast.LENGTH_LONG).show()
+            if (!it) {
+                    Toast.makeText(this, viewModel.message.value, Toast.LENGTH_LONG).show()
+            }
+            else{
+                Log.e("token",viewModel.token.value.orEmpty())
+            }
         })
     }
 }
