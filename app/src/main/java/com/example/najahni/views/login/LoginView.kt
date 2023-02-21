@@ -1,5 +1,6 @@
 package com.example.najahni.views.login
 
+import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
@@ -19,10 +20,11 @@ import com.example.najahni.utils.SharedPrefsNajahni.SHARED_PREFS
 
 
 class LoginView : AppCompatActivity() {
-    lateinit var viewModel: LoginViewModel
+    private lateinit var viewModel: LoginViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+        //Log.i("Token",SharedPrefsNajahni.getToken(sharedPreferences))
         viewModel = ViewModelProvider(this)[LoginViewModel::class.java]
         findViewById<Button>(R.id.loginBtn).setOnClickListener {
             viewModel.onLoginClicked(
@@ -35,7 +37,8 @@ class LoginView : AppCompatActivity() {
                     Toast.makeText(this, viewModel.message.value, Toast.LENGTH_LONG).show()
             }
             else{
-                Log.e("token",viewModel.token.value.orEmpty())
+                val sharedPreferences: SharedPreferences = getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE)
+                SharedPrefsNajahni.setToken(sharedPreferences, viewModel.token.value.orEmpty())
             }
         })
     }
