@@ -1,5 +1,6 @@
 package com.example.najahni.views.login
 
+import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
@@ -10,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.najahni.R
+import com.example.najahni.bottombarnavigation.MainActivity
 import com.example.najahni.models.CurrentUser
 import com.example.najahni.models.User
 import com.example.najahni.services.implementation.UserService
@@ -36,6 +38,8 @@ class LoginView : AppCompatActivity() {
             }
             else{
                 Log.e("token",viewModel.token.value.orEmpty())
+               val intent = Intent(this,MainActivity::class.java)
+                startActivity(intent)
             }
         })
     }
