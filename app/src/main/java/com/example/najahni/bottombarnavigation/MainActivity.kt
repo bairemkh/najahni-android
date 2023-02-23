@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_hosting_bottom_bar_nav)
-
+        setCurrentFragment(HomeFragment())
         findViewById<BottomNavigationView>(R.id.bottomNavigationView).setOnItemSelectedListener {
                 when (it.itemId) {
                     R.id.home -> setCurrentFragment(HomeFragment())
