@@ -13,7 +13,7 @@ class FavoritFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view : View = inflater.inflate(R.layout.fragment_courses, container, false)
+        val view : View = inflater.inflate(R.layout.fragment_favorit, container, false)
         // Inflate the layout for this fragment
         return view
     }

@@ -7,7 +7,7 @@
     tools:context=".views.favorit.FavoritFragment">
 
     <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appBarLayout"
+        android:id="@+id/appBarfavorit"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
@@ -15,7 +15,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
+            android:id="@+id/toolbarfavorit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/primary_color"

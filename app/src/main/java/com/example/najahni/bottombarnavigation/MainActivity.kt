@@ -15,22 +15,41 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_hosting_bottom_bar_nav)
-        setCurrentFragment(HomeFragment())
+        loadFragment(HomeFragment())
         findViewById<BottomNavigationView>(R.id.bottomNavigationView).setOnItemSelectedListener {
                 when (it.itemId) {
-                    R.id.home -> setCurrentFragment(HomeFragment())
-                    R.id.mycourses -> setCurrentFragment(CoursesFragment())
-                    R.id.cart -> setCurrentFragment(CartFragment())
-                    R.id.favorite -> setCurrentFragment(FavoritFragment())
-                    R.id.profile -> setCurrentFragment(ProfileFragment())
+                    R.id.home -> {
+                        loadFragment(HomeFragment())
+                        true
+                    }
+                    R.id.mycourses -> {
+                        loadFragment(CoursesFragment())
+                        true
+                    }
+                    R.id.cart -> {
+                        loadFragment(CartFragment())
+                        true
+                    }
+                    R.id.favorite -> {
+                        loadFragment(FavoritFragment())
+                        true
+                    }
+                    R.id.profile -> {
+                        loadFragment(ProfileFragment())
+                        true
+                    }
+                    else -> {
+                        true
+                    }
                 }
-            true
+
         }
     }
 
-    private fun setCurrentFragment(fragment:Fragment)=
-        supportFragmentManager.beginTransaction().apply {
-            replace(R.id.fram_container,fragment)
-            commit()
-        }
+    private  fun loadFragment(fragment: Fragment){
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.replace(R.id.fram_container,fragment)
+        transaction.commit()
+    }
+
 }
