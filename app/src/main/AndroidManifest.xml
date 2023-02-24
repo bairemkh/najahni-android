@@ -12,7 +12,11 @@
         android:roundIcon="@drawable/logo_najahni"
         android:supportsRtl="true"
         android:theme="@style/Theme.Najahni"
+        android:usesCleartextTraffic="true"
         tools:targetApi="31">
+        <activity
+            android:name=".bottombarnavigation.MainActivity"
+            android:exported="false" />
         <activity
             android:name=".views.login.LoginView"
             android:exported="true">
