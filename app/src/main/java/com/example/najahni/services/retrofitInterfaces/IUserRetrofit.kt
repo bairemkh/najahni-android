@@ -15,4 +15,17 @@ interface IUserRetrofit {
 
     @GET("user/profile")
     fun getProfile(@Header("Authorization") authorization: String): Call<ResponseBody>
+
+    @POST("user/forget-password")
+    @FormUrlEncoded
+    fun forgetPassword(
+        @Field("email") email: String,
+    ): Call<ResponseBody>
+
+    @POST("user/reset-password")
+    @FormUrlEncoded
+    fun resetPassword(
+        @Field("id") id: String,
+        @Field("otp") otp: String
+    ): Call<ResponseBody>
 }

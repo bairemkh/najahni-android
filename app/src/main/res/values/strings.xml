@@ -1,12 +1,17 @@
 <resources>
     <string name="app_name">Najahni</string>
     <string name="login">Login</string>
+    <string name="send">Send</string>
     <string name="password">Password</string>
     <string name="home">Home</string>
     <string name="mycourses">My courses</string>
     <string name="cart">Cart</string>
     <string name="favorite">Favorite</string>
-    <string name="profile">profile</string>
+    <string name="profile">Profile</string>
+    <string name="forgot_password">Forgot your password ?</string>
+    <string name="forgot_description">If you have your password, you have to type it in and finaly you receive an email to retrieve it.First you get a 4 digit pin code and then you put it in the form</string>
+    <string name="otp">Type the code to reset your password</string>
+    <string name="otp_description">Otp</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

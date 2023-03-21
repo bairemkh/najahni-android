@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
@@ -19,6 +20,7 @@ import com.example.najahni.services.implementation.UserService
 import com.example.najahni.utils.ApiResponseHandling
 import com.example.najahni.utils.SharedPrefsNajahni
 import com.example.najahni.utils.SharedPrefsNajahni.SHARED_PREFS
+import com.example.najahni.views.forgetpassword.ForgetPasswordActivity
 
 
 class LoginView : AppCompatActivity() {
@@ -27,6 +29,10 @@ class LoginView : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
         viewModel = ViewModelProvider(this)[LoginViewModel::class.java]
+        findViewById<TextView>(R.id.forgetpwd).setOnClickListener {
+            val intent = Intent(this,ForgetPasswordActivity::class.java)
+            startActivity(intent)
+        }
         findViewById<Button>(R.id.loginBtn).setOnClickListener {
             viewModel.onLoginClicked(
                 findViewById<EditText>(R.id.loginEmail).text.toString(),

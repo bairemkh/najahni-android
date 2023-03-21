@@ -89,6 +89,52 @@ object UserService : IService<User> {
         })
     }
 
+    fun forgetPassword (email: String,responseHandler: ApiResponseHandling){
+        val response = api.forgetPassword(email).enqueue(object : Callback<ResponseBody>{
+            override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
+                if (response.code() == 200) {
+                    val body = response.body()?.string().orEmpty()
+                    val gson = Gson()
+                    val jsonElement: JsonElement = gson.fromJson(body, JsonElement::class.java)
+                    val jsonObject = jsonElement.asJsonObject
+
+                    responseHandler.onSuccess(jsonObject.get("_id").asString)
+
+                } else
+                    responseHandler.onError(response.code(), response.message())
+            }
+
+            override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+                Log.e("error", "${t.message}")
+                responseHandler.onFailure(t.message.toString())
+            }
+
+        })
+    }
+
+    fun resetPassword (id: String,otp:String,responseHandler: ApiResponseHandling){
+        val response = api.resetPassword(id,otp).enqueue(object : Callback<ResponseBody>{
+            override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
+                if (response.code() == 200) {
+                    val body = response.body()?.string().orEmpty()
+                    val gson = Gson()
+                    val jsonElement: JsonElement = gson.fromJson(body, JsonElement::class.java)
+                    val jsonObject = jsonElement.asJsonObject
+
+                    responseHandler.onSuccess(jsonObject.get("success").asBoolean)
+
+                } else
+                    responseHandler.onError(response.code(), response.message())
+            }
+
+            override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+                Log.e("error", "${t.message}")
+                responseHandler.onFailure(t.message.toString())
+            }
+
+        })
+    }
+
     fun makeUserFromJson(jsonObject: JsonObject): User {
         return User(jsonObject.get("_id").asString,
             jsonObject.get("firstname").asString,
