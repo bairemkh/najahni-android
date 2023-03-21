@@ -8,12 +8,14 @@ import com.example.najahni.utils.ApiResponseHandling
 class OtpViewModel : ViewModel() {
     var success = MutableLiveData<Boolean>()
     var message = MutableLiveData<String>()
+    var token = MutableLiveData<String>()
 
     fun sendOtpClick(id: String,otp:String) {
         UserService.resetPassword(id,otp,object : ApiResponseHandling{
             override fun onSuccess(data: Any) {
-                success.value = data as Boolean
+                token.value = data as String
                 message.value = "Success"
+                success.value =  true
             }
 
             override fun onError(errorCode: Int, errorMessage: String) {

@@ -121,7 +121,36 @@ object UserService : IService<User> {
                     val jsonElement: JsonElement = gson.fromJson(body, JsonElement::class.java)
                     val jsonObject = jsonElement.asJsonObject
 
-                    responseHandler.onSuccess(jsonObject.get("success").asBoolean)
+                    getUserProfile(jsonObject.get("data").asString){ code,user->
+                        if(code == 200){
+                            Log.e("user","user is $user")
+                            CurrentUser.setCurrentUser(user!!)
+                            responseHandler.onSuccess(jsonObject.get("data").asString)
+                        }else
+                            responseHandler.onError(response.code(), "Auth Problem")
+                    }
+                } else
+                    responseHandler.onError(response.code(), response.message())
+            }
+
+            override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+                Log.e("error", "${t.message}")
+                responseHandler.onFailure(t.message.toString())
+            }
+
+        })
+    }
+
+    fun newPassword (token: String,password: String,responseHandler: ApiResponseHandling){
+        val response = api.newPassword(token,password).enqueue(object : Callback<ResponseBody>{
+            override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
+                if (response.code() == 200) {
+                    val body = response.body()?.string().orEmpty()
+                    val gson = Gson()
+                    val jsonElement: JsonElement = gson.fromJson(body, JsonElement::class.java)
+                    val jsonObject = jsonElement.asJsonObject
+
+                    responseHandler.onSuccess(jsonObject.get("message").asString)
 
                 } else
                     responseHandler.onError(response.code(), response.message())

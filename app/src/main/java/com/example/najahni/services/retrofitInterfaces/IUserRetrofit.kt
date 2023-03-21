@@ -28,4 +28,11 @@ interface IUserRetrofit {
         @Field("id") id: String,
         @Field("otp") otp: String
     ): Call<ResponseBody>
+
+    @PUT("user/editprofile")
+    @FormUrlEncoded
+    fun newPassword(
+        @Header("Authorization") authorization: String,
+        @Field("password") password: String
+    ): Call<ResponseBody>
 }

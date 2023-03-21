@@ -12,6 +12,9 @@
     <string name="forgot_description">If you have your password, you have to type it in and finaly you receive an email to retrieve it.First you get a 4 digit pin code and then you put it in the form</string>
     <string name="otp">Type the code to reset your password</string>
     <string name="otp_description">Otp</string>
+    <string name="reset_password">Reset your password</string>
+    <string name="new_password">Enter new password</string>
+    <string name="confirm_password">Confirm password</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
