@@ -35,4 +35,21 @@ interface IUserRetrofit {
         @Header("Authorization") authorization: String,
         @Field("password") password: String
     ): Call<ResponseBody>
+
+    @PUT("user/editprofile")
+    @FormUrlEncoded
+    fun editProfile(
+        @Header("Authorization") authorization: String,
+        @Field("firstname") firstname: String,
+        @Field("lastname") lastname: String,
+        @Field("email") email: String,
+    ): Call<ResponseBody>
+
+    @PUT("user/change-password")
+    @FormUrlEncoded
+    fun changepassword(
+        @Header("Authorization") authorization: String,
+        @Field("password") password: String,
+        @Field("newpassword") newPassword: String
+    ): Call<ResponseBody>
 }

@@ -28,6 +28,7 @@ class HomeFragment : Fragment() {
     ): View? {
         val view : View = inflater.inflate(R.layout.fragment_home, container, false)
         Picasso.get().load(Consts.BASE_URL1 + CurrentUser.image).into(view.findViewById<CircleImageView>(R.id.circle_imageView))
+        view.findViewById<TextView>(R.id.usernamehome).text =  CurrentUser.firstname + " " + CurrentUser.lastname
         val recycler = view.findViewById<RecyclerView>(R.id.recyclerView)
         viewModel = ViewModelProvider(this)[HomeViewModel::class.java]
         viewModel.getAllCourses{ list ->

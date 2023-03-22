@@ -1,14 +1,18 @@
 package com.example.najahni.views.profile
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import android.widget.TextView
 import com.example.najahni.R
+import com.example.najahni.bottombarnavigation.MainActivity
 import com.example.najahni.models.CurrentUser
 import com.example.najahni.utils.Consts
+import com.example.najahni.views.editProfile.EditProfileActivity
 import com.squareup.picasso.Picasso
 import de.hdodenhof.circleimageview.CircleImageView
 
@@ -22,6 +26,12 @@ class ProfileFragment : Fragment() {
         Picasso.get().load(Consts.BASE_URL1 + CurrentUser.image).into(view.findViewById<CircleImageView>(R.id.profileimg))
         view.findViewById<TextView>(R.id.usernameprifile).text = CurrentUser.firstname + " " + CurrentUser.lastname
         view.findViewById<TextView>(R.id.emailprofile).text = CurrentUser.email
+        view.findViewById<LinearLayout>(R.id.editprofile).setOnClickListener {
+            activity.let {
+                val intent = Intent(it,EditProfileActivity::class.java)
+                it?.startActivity(intent)
+            }
+        }
         return view
     }
 }
