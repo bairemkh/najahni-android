@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="let_s_create_a_n_new_account">Let\'s Create a \n new account</string>
+    <string name="name">Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="confirm_your_password">Confirm your password</string>
+    <string name="create_account">Create Account</string>
+    <string name="next">Next</string>
+    <string name="we_re_one_step_forward">We\'re One Step Forward</string>
+    <string name="use_najahni_as_a_student">Use Najahni As A Student</string>
+    <string name="use_najahni_as_a_trainer">Use Najahni As A Trainer</string>
+    <string name="explain_role">if your goal is simply to learn, you will be welcomed as a student.\nhowever, if your goal is to teach people, share your knowledge and earn some extra money, you can connect as a trainer.</string>
+</resources>

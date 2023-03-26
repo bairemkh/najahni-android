@@ -6,4 +6,5 @@
     <color name="danger">#A7001E</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="selectedCard">#F1F1F1</color>
 </resources>

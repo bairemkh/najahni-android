@@ -4,13 +4,24 @@
     <string name="send">Send</string>
     <string name="edit">Edit</string>
     <string name="password">Password</string>
-    <string name="firstname">Firstname</string>
-    <string name="lastname">Lastname</string>
     <string name="home">Home</string>
     <string name="mycourses">My courses</string>
     <string name="cart">Cart</string>
     <string name="favorite">Favorite</string>
-    <string name="profile">Profile</string>
+    <string name="profile">profile</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="let_s_create_a_n_new_account">Let\'s Create a \n new account</string>
+    <string name="name">Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="confirm_your_password">Confirm your password</string>
+    <string name="create_account">Create Account</string>
+    <string name="next">Next</string>
+    <string name="we_re_one_step_forward">We\'re One Step Forward</string>
+    <string name="use_najahni_as_a_student">Use Najahni As A Student</string>
+    <string name="use_najahni_as_a_trainer">Use Najahni As A Trainer</string>
+    <string name="explain_role">if your goal is simply to learn, you will be welcomed as a student.\nhowever, if your goal is to teach people, share your knowledge and earn some extra money, you can connect as a trainer.</string>
+    <string name="firstname">Firstname</string>
+    <string name="lastname">Lastname</string>
     <string name="forgot_password">Forgot your password ?</string>
     <string name="forgot_description">If you have your password, you have to type it in and finaly you receive an email to retrieve it.First you get a 4 digit pin code and then you put it in the form</string>
     <string name="otp">Type the code to reset your password</string>
@@ -25,6 +36,4 @@
     <string name="email_edit">Enter your email</string>
     <string name="change_password">Change your password ?</string>
     <string name="edit_profile">Edit profile</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

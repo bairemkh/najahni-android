@@ -20,6 +20,8 @@ import com.example.najahni.services.implementation.UserService
 import com.example.najahni.utils.ApiResponseHandling
 import com.example.najahni.utils.SharedPrefsNajahni
 import com.example.najahni.utils.SharedPrefsNajahni.SHARED_PREFS
+import com.example.najahni.views.signup.SignUpActivity
+import com.example.najahni.views.signup.SignupPage2
 import com.example.najahni.views.forgetpassword.ForgetPasswordActivity
 
 
@@ -39,6 +41,10 @@ class LoginView : AppCompatActivity() {
                 findViewById<EditText>(R.id.loginPassword).text.toString()
             )
         }
+        findViewById<TextView>(R.id.toSignUp).setOnClickListener {
+            val intent = Intent(this,SignUpActivity::class.java)
+            startActivity(intent)
+        }
         viewModel.loginSuccess.observe(this, Observer {
             if (!it) {
                     Toast.makeText(this, viewModel.message.value, Toast.LENGTH_LONG).show()
@@ -49,7 +55,7 @@ class LoginView : AppCompatActivity() {
                SharedPrefsNajahni.setToken(sharedPreferences, viewModel.token.value.orEmpty())
                val intent = Intent(this,MainActivity::class.java)
                startActivity(intent)
-                
+
             }
         })
     }

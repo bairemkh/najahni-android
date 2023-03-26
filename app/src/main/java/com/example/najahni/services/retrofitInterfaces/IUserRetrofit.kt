@@ -1,5 +1,6 @@
 package com.example.najahni.services.retrofitInterfaces
 
+import com.example.najahni.models.User
 import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Response
@@ -15,6 +16,9 @@ interface IUserRetrofit {
 
     @GET("user/profile")
     fun getProfile(@Header("Authorization") authorization: String): Call<ResponseBody>
+
+    @POST("user/signup")
+    fun signup(@Body user: User): Call<ResponseBody>
 
     @POST("user/forget-password")
     @FormUrlEncoded
