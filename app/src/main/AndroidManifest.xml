@@ -13,13 +13,30 @@
         android:roundIcon="@drawable/logo_najahni"
         android:supportsRtl="true"
         android:theme="@style/Theme.Najahni"
-        android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
             android:name=".views.signup.SignupPage2"
             android:exported="false" />
         <activity
             android:name=".views.signup.SignUpActivity"
+            android:exported="false" />
+        <activity
+            android:name=".bottombarnavigation.MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".views.changepassword.ChangePasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".views.editProfile.EditProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".views.resetpassword.ResetPasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".views.otp.OtpActivity"
+            android:exported="false" />
+        <activity
+            android:name=".views.forgetpassword.ForgetPasswordActivity"
             android:exported="false" />
         <activity
             android:name=".bottombarnavigation.MainActivity"

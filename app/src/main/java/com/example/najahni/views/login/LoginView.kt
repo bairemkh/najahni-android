@@ -22,6 +22,7 @@ import com.example.najahni.utils.SharedPrefsNajahni
 import com.example.najahni.utils.SharedPrefsNajahni.SHARED_PREFS
 import com.example.najahni.views.signup.SignUpActivity
 import com.example.najahni.views.signup.SignupPage2
+import com.example.najahni.views.forgetpassword.ForgetPasswordActivity
 
 
 class LoginView : AppCompatActivity() {
@@ -30,6 +31,10 @@ class LoginView : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
         viewModel = ViewModelProvider(this)[LoginViewModel::class.java]
+        findViewById<TextView>(R.id.forgetpwd).setOnClickListener {
+            val intent = Intent(this,ForgetPasswordActivity::class.java)
+            startActivity(intent)
+        }
         findViewById<Button>(R.id.loginBtn).setOnClickListener {
             viewModel.onLoginClicked(
                 findViewById<EditText>(R.id.loginEmail).text.toString(),
@@ -50,7 +55,7 @@ class LoginView : AppCompatActivity() {
                SharedPrefsNajahni.setToken(sharedPreferences, viewModel.token.value.orEmpty())
                val intent = Intent(this,MainActivity::class.java)
                startActivity(intent)
-                
+
             }
         })
     }
