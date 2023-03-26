@@ -12,8 +12,8 @@ class LoginViewModel() : ViewModel() {
     fun onLoginClicked(email: String, password: String) {
         UserService.login(email, password, object : ApiResponseHandling {
             override fun onSuccess(data: Any) {
-                token.value=data as String
-                message.value="success"
+                token.value = data as String
+                message.value = "success"
                 loginSuccess.value = true
             }
 

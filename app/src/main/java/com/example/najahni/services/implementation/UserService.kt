@@ -1,7 +1,5 @@
 package com.example.najahni.services.implementation
 
-import android.content.Context.MODE_PRIVATE
-import android.content.SharedPreferences
 import android.util.Log
 import com.example.najahni.models.CurrentUser
 import com.example.najahni.models.User
@@ -20,22 +18,30 @@ import retrofit2.Callback
 import retrofit2.Response
 
 
-object UserService : IService<User> {
+object UserService {
     val api: IUserRetrofit = retrofit.create(IUserRetrofit::class.java)
 
-    override fun create(o: User) {
+    fun create(user: User,onApiResponse:(Boolean,Int)->Unit) {
+    api.signup(user).enqueue(object : Callback<ResponseBody>{
+        override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
+            onApiResponse(response.isSuccessful,response.code())
+        }
+
+        override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+            onApiResponse(false,0)
+        }
+    })
+    }
+
+    fun retrieve(id: String): User {
         TODO("Not yet implemented")
     }
 
-    override fun retrieve(id: String): User {
+    fun update(id: String) {
         TODO("Not yet implemented")
     }
 
-    override fun update(id: String) {
-        TODO("Not yet implemented")
-    }
-
-    override fun delete(id: String) {
+    fun delete(id: String) {
         TODO("Not yet implemented")
     }
 

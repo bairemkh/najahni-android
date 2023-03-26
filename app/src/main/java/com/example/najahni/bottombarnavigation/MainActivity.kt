@@ -6,7 +6,7 @@ import androidx.fragment.app.Fragment
 import com.example.najahni.R
 import com.example.najahni.views.cart.CartFragment
 import com.example.najahni.views.courses.CoursesFragment
-import com.example.najahni.views.favorit.FavoritFragment
+import com.example.najahni.views.favorit.FavoriteFragment
 import com.example.najahni.views.home.HomeFragment
 import com.example.najahni.views.profile.ProfileFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
                         true
                     }
                     R.id.favorite -> {
-                        loadFragment(FavoritFragment())
+                        loadFragment(FavoriteFragment())
                         true
                     }
                     R.id.profile -> {

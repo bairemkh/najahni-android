@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import com.example.najahni.R
 
 
-class FavoritFragment : Fragment() {
+class FavoriteFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

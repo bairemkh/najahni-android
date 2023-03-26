@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
@@ -19,6 +20,8 @@ import com.example.najahni.services.implementation.UserService
 import com.example.najahni.utils.ApiResponseHandling
 import com.example.najahni.utils.SharedPrefsNajahni
 import com.example.najahni.utils.SharedPrefsNajahni.SHARED_PREFS
+import com.example.najahni.views.signup.SignUpActivity
+import com.example.najahni.views.signup.SignupPage2
 
 
 class LoginView : AppCompatActivity() {
@@ -32,6 +35,10 @@ class LoginView : AppCompatActivity() {
                 findViewById<EditText>(R.id.loginEmail).text.toString(),
                 findViewById<EditText>(R.id.loginPassword).text.toString()
             )
+        }
+        findViewById<TextView>(R.id.toSignUp).setOnClickListener {
+            val intent = Intent(this,SignUpActivity::class.java)
+            startActivity(intent)
         }
         viewModel.loginSuccess.observe(this, Observer {
             if (!it) {
