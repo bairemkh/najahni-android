@@ -47,7 +47,7 @@ object CourseService : IService<Course> {
                     val jsonElement: JsonElement = gson.fromJson(body, JsonElement::class.java)
                     val jsonObject = jsonElement.asJsonObject
                     val courses = jsonObject["courses"].asJsonArray.map { o -> makeCourseFromJson(o.asJsonObject) }
-                    Log.e("courses ========", jsonObject.toString())
+                   // Log.e("courses ========", jsonObject.toString())
                     returningResponse(200, courses)
                 } else {
                     Log.e("response 302"," ====> ${response.body()?.string().orEmpty()}")
