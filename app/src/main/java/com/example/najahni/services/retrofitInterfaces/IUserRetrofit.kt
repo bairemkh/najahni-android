@@ -1,6 +1,7 @@
 package com.example.najahni.services.retrofitInterfaces
 
 import com.example.najahni.models.User
+import okhttp3.MultipartBody
 import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Response
@@ -39,6 +40,10 @@ interface IUserRetrofit {
         @Header("Authorization") authorization: String,
         @Field("password") password: String
     ): Call<ResponseBody>
+
+    @Multipart
+    @PUT("user/change-photo")
+    fun changeImage(@Header("Authorization") authorization: String,@Part image: MultipartBody.Part): Call<ResponseBody>
 
     @PUT("user/editprofile")
     @FormUrlEncoded
