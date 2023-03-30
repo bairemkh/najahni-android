@@ -11,6 +11,7 @@ object Consts {
     const val USER_EMAIL_INTENT="userEmail"
     const val USER_PASSWORD_INTENT="userPassword"
 
+
     val BASE_URL1 = "http://192.168.1.15:9090"
     val BASE_URL="http://192.168.1.15:9090/"
     val retrofit = Retrofit.Builder()

@@ -12,10 +12,14 @@ import com.example.najahni.utils.IService
 import com.google.gson.Gson
 import com.google.gson.JsonElement
 import com.google.gson.JsonObject
+import okhttp3.MediaType
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.io.File
 
 
 object UserService {
@@ -186,6 +190,24 @@ object UserService {
 
             override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
                 Log.e("error", "${t.message}")
+                responseHandler.onFailure(t.message.toString())
+            }
+
+        })
+    }
+
+    fun changeImage (token: String, file: File, responseHandler: ApiResponseHandling){
+        val requestBody = RequestBody.create(MediaType.parse("application/octet-stream"), file)
+        val imagePart = MultipartBody.Part.createFormData("image", file.name, requestBody)
+        api.changeImage(token,imagePart).enqueue(object :Callback<ResponseBody>{
+            override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
+                if (response.isSuccessful){
+                responseHandler.onSuccess("Image is updated")
+                }else
+                    responseHandler.onError(response.code(),response.message())
+            }
+
+            override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
                 responseHandler.onFailure(t.message.toString())
             }
 
