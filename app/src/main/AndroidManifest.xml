@@ -15,18 +15,9 @@
         android:theme="@style/Theme.Najahni"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
-        <!-- <activity
-             android:name=".views.courseDetail.CourseDetail"
-             android:exported="false" />-->
         <activity
-            android:name=".views.courseDetail.CourseDetail"
-            android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+             android:name=".views.courseDetail.CourseDetail"
+             android:exported="false" />
         <activity
             android:name=".views.signup.SignupPage2"
             android:exported="false" />
@@ -52,7 +43,7 @@
             android:name=".views.forgetpassword.ForgetPasswordActivity"
             android:exported="false" />
         <!-- this is a comment -->
-        <!-- <activity
+        <activity
              android:name=".views.login.LoginView"
              android:exported="true">
              <intent-filter>
@@ -64,7 +55,7 @@
              <meta-data
                  android:name="android.app.lib_name"
                  android:value="" />
-         </activity>-->
+         </activity>
     </application>
 
 </manifest>
