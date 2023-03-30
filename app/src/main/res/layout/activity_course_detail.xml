@@ -120,7 +120,18 @@
                     android:text="0"/>
             </LinearLayout>
         </LinearLayout>
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tablayoutdetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:tabTextColor="@color/primary_color"/>
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/viewLoaderdetail"
+            android:layout_width="match_parent"
+            android:layout_height="500dp" />
     </LinearLayout>
+
     </androidx.core.widget.NestedScrollView>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
