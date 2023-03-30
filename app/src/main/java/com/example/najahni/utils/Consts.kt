@@ -12,8 +12,8 @@ object Consts {
     const val USER_PASSWORD_INTENT="userPassword"
 
 
-    val BASE_URL1 = "http://192.168.1.16:9090"
-    val BASE_URL="http://192.168.1.52:9090/"
+    val BASE_URL1 = "http://192.168.1.15:9090"
+    val BASE_URL="http://192.168.1.15:9090/"
     val retrofit = Retrofit.Builder()
         .baseUrl(BASE_URL)
         .addConverterFactory(GsonConverterFactory.create(GsonBuilder().setLenient().create()))
