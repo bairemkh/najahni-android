@@ -226,5 +226,4 @@ object UserService {
             jsonObject.get("otp").asString,
             jsonObject.get("courses").asJsonArray.map { c -> c.asString })
     }
-
 }
