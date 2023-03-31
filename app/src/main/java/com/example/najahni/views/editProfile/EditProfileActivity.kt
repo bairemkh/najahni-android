@@ -22,10 +22,11 @@ import de.hdodenhof.circleimageview.CircleImageView
 import java.io.File
 
 class EditProfileActivity : AppCompatActivity() {
-    val viewModel : EditProfileViewModel = ViewModelProvider(this)[EditProfileViewModel::class.java]
+    lateinit var  viewModel : EditProfileViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_profile)
+        viewModel = ViewModelProvider(this)[com.example.najahni.views.editProfile.EditProfileViewModel::class.java]
         findViewById<FloatingActionButton>(R.id.changeImageBtn).setOnClickListener {
             val intent = Intent(Intent.ACTION_PICK)
             intent.type = "image/*"

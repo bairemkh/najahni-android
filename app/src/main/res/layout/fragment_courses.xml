@@ -28,14 +28,21 @@
         </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tablayoutcourses"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Course fragment"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/appBarcourses"
+        app:tabTextColor="@color/primary_color" />
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewLoadercourses"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tablayoutcourses" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
