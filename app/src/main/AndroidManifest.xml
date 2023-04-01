@@ -22,6 +22,9 @@
              android:name=".views.courseDetail.CourseDetail"
              android:exported="false" />
         <activity
+             android:name=".views.courseDetail.CourseDetail"
+             android:exported="false" />
+        <activity
             android:name=".views.signup.SignupPage2"
             android:exported="false" />
         <activity
