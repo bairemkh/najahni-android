@@ -10,7 +10,7 @@ data class User(var _id:String?, var firstname:String, var lastname:String, var 
                 var image: String,
                 var isVerified: Boolean,
                 var otp: String,
-                var courses:List<String>?)
+                var courses:List<String>?):java.io.Serializable
 object CurrentUser{
     var isConnected:Boolean = false
      var _id:String? = null
