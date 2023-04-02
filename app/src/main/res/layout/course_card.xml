@@ -20,7 +20,7 @@
             android:layout_width="100sp"
             android:layout_height="match_parent"
             android:layout_margin="10dp"
-            android:scaleType="fitXY"
+            android:scaleType="centerCrop"
             android:adjustViewBounds="true"
             android:src="@drawable/user" />
         <LinearLayout

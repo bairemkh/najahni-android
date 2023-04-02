@@ -1,5 +1,7 @@
 package com.example.najahni.views.home
 
+import android.content.Intent
+import android.os.Parcelable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,6 +11,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.najahni.R
 import com.example.najahni.models.Course
 import com.example.najahni.utils.Consts
+import com.example.najahni.utils.Consts.SELECTED_COURSE_INTENT
+import com.example.najahni.views.courseDetail.CourseDetail
 import com.squareup.picasso.Picasso
 
 class CourseAdapter (val courses : List<Course>) : RecyclerView.Adapter<CourseAdapter.ViewHolder> (){
@@ -28,6 +32,11 @@ class CourseAdapter (val courses : List<Course>) : RecyclerView.Adapter<CourseAd
         holder.title.text = course.title
         holder.price.text = course.price.toString()
         holder.rating.text = "5"
+        holder.itemView.setOnClickListener {
+            val intent = Intent(holder.itemView.context, CourseDetail::class.java)
+            intent.putExtra(SELECTED_COURSE_INTENT, course)
+            it.context.startActivity(intent)
+        }
     }
 
     class ViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView){

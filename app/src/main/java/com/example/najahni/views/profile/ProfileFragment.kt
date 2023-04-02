@@ -1,6 +1,8 @@
 package com.example.najahni.views.profile
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -12,7 +14,9 @@ import com.example.najahni.R
 import com.example.najahni.bottombarnavigation.MainActivity
 import com.example.najahni.models.CurrentUser
 import com.example.najahni.utils.Consts
+import com.example.najahni.utils.SharedPrefsNajahni
 import com.example.najahni.views.editProfile.EditProfileActivity
+import com.example.najahni.views.login.LoginView
 import com.squareup.picasso.Picasso
 import de.hdodenhof.circleimageview.CircleImageView
 
@@ -30,6 +34,15 @@ class ProfileFragment : Fragment() {
             activity.let {
                 val intent = Intent(it,EditProfileActivity::class.java)
                 it?.startActivity(intent)
+            }
+        }
+        view.findViewById<LinearLayout>(R.id.logout).setOnClickListener {
+            activity.let {
+                val sharedPreferences: SharedPreferences = it?.getSharedPreferences(SharedPrefsNajahni.SHARED_PREFS, Context.MODE_PRIVATE)!!
+                SharedPrefsNajahni.setToken(sharedPreferences, "")
+                val intent = Intent(it,LoginView::class.java)
+                it?.startActivity(intent)
+                it?.finish()
             }
         }
         return view

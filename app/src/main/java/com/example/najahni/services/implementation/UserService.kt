@@ -206,8 +206,9 @@ object UserService {
                 }else
                     responseHandler.onError(response.code(),response.message())
             }
-
             override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+                Log.e("error", "${t.message}")
+                Log.e("error", "${file.absolutePath}")
                 responseHandler.onFailure(t.message.toString())
             }
 
