@@ -27,7 +27,7 @@ import okhttp3.RequestBody
 import java.io.File
 
 class EditProfileActivity : AppCompatActivity() {
-    lateinit var viewModel : EditProfileViewModel
+    lateinit var  viewModel : EditProfileViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_profile)
