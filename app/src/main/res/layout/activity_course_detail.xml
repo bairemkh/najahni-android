@@ -129,6 +129,7 @@
         app:layout_anchor="@id/CourseDetailAppBarLayout"
         app:layout_anchorGravity="end|bottom"/>
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/enroll_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="40dp"
