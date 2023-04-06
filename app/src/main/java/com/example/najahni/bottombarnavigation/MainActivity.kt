@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.example.najahni.R
 import com.example.najahni.models.CurrentUser
+import com.example.najahni.roomDB.AppDatabase
 import com.example.najahni.views.cart.CartFragment
 import com.example.najahni.views.courses.CoursesFragment
 import com.example.najahni.views.favorit.FavoriteFragment
@@ -14,9 +15,11 @@ import com.example.najahni.views.profileTrainer.ProfileTrainerFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
+    lateinit var appDatabase: AppDatabase
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_hosting_bottom_bar_nav)
+        appDatabase = AppDatabase.getDatabase(this)
         loadFragment(HomeFragment())
         findViewById<BottomNavigationView>(R.id.bottomNavigationView).setOnItemSelectedListener {
                 when (it.itemId) {
