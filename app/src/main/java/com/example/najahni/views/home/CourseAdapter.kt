@@ -30,7 +30,7 @@ class CourseAdapter (val courses : List<Course>) : RecyclerView.Adapter<CourseAd
         val course = courses[position]
         Picasso.get().load(Consts.BASE_URL1 + course.image).into(holder.courseimg)
         holder.title.text = course.title
-        holder.price.text = course.price.toString()
+        holder.price.text = if (course.isPaid) course.price.toString() + "DT" else "free"
         holder.rating.text = "5"
         holder.itemView.setOnClickListener {
             val intent = Intent(holder.itemView.context, CourseDetail::class.java)
@@ -43,6 +43,6 @@ class CourseAdapter (val courses : List<Course>) : RecyclerView.Adapter<CourseAd
         val courseimg: ImageView = itemView.findViewById(R.id.coursecardimg)
         val title: TextView = itemView.findViewById(R.id.coursenameid)
         val price: TextView = itemView.findViewById(R.id.courseprice)
-        val rating: TextView = itemView.findViewById(R.id.courseprice)
+        val rating: TextView = itemView.findViewById(R.id.courserating)
     }
 }

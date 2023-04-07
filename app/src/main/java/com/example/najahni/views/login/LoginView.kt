@@ -23,6 +23,7 @@ import com.example.najahni.utils.SharedPrefsNajahni.SHARED_PREFS
 import com.example.najahni.views.signup.SignUpActivity
 import com.example.najahni.views.signup.SignupPage2
 import com.example.najahni.views.forgetpassword.ForgetPasswordActivity
+import com.google.android.material.textfield.TextInputEditText
 
 
 class LoginView : AppCompatActivity() {
