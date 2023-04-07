@@ -25,13 +25,13 @@ class CartFragment : Fragment() {
         appDatabase = AppDatabase.getDatabase(requireContext())
         val recycler = view.findViewById<RecyclerView>(R.id.recyclerViewCart)
         recycler.layoutManager = LinearLayoutManager(activity)
-        runBlocking {
-            listCart = appDatabase.cartDao().getAll()
-        }
-                if (!listCart.isEmpty()) {
-                    recycler.adapter = CartAdapter(appDatabase.cartDao().getAll())
-                }
+        CoroutineScope(Dispatchers.IO).launch {
+            val list = appDatabase.cartDao().getAll()
+            if (!list.isEmpty()) {
+                recycler.adapter = CartAdapter(appDatabase.cartDao().getAll())
+            }
 
+        }
         return view
     }
 }

@@ -34,6 +34,8 @@ class FavoriteFragment : Fragment() {
             recycler.adapter = FavoriteAdapter(appDatabase.favoritDao().getAll())
         }
 
+
+
         return view
     }
 }
