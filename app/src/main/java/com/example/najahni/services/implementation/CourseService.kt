@@ -2,6 +2,8 @@ package com.example.najahni.services.implementation
 
 import android.util.Log
 import com.example.najahni.models.Course
+import com.example.najahni.models.Lesson
+import com.example.najahni.models.Section
 import com.example.najahni.models.User
 import com.example.najahni.models.enums.Field
 import com.example.najahni.models.enums.Level
@@ -70,6 +72,7 @@ object CourseService : IService<Course> {
             jsonObject.get("isPaid").asBoolean,
             jsonObject.get("price").asDouble,
             UserService.makeUserFromJson(jsonObject.get("idowner") as JsonObject),
+            jsonObject.get("sections").asJsonArray.map { obj-> Section.jsonToSection(obj.asJsonObject)},
             jsonObject.get("isArchived").asBoolean,
             jsonObject.get("lesson_number").asInt
         )

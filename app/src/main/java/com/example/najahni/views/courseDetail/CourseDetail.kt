@@ -2,7 +2,6 @@ package com.example.najahni.views.courseDetail
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -14,7 +13,6 @@ import com.example.najahni.models.Favorits
 import com.example.najahni.roomDB.AppDatabase
 import com.example.najahni.utils.Consts
 import com.example.najahni.utils.Consts.SELECTED_COURSE_INTENT
-import com.example.najahni.views.profileTrainer.TabAdapter
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
@@ -24,7 +22,6 @@ import com.squareup.picasso.Picasso
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import kotlin.properties.Delegates
 
 class CourseDetail : AppCompatActivity() {
     private lateinit var tablayout : TabLayout
@@ -78,7 +75,7 @@ class CourseDetail : AppCompatActivity() {
         tablayout.addTab(tablayout.newTab().setText("Reviews"))
         tablayout.tabGravity = TabLayout.GRAVITY_FILL
 
-        val adapter = TabAdpterDetail(this,supportFragmentManager,tablayout.tabCount)
+        val adapter = TabAdapterDetail(this,supportFragmentManager,tablayout.tabCount,selectedCourse)
         viewPager.adapter = adapter
         viewPager.offscreenPageLimit = 2
         viewPager.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(tablayout))
