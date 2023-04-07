@@ -36,7 +36,8 @@
                 android:layout_height="wrap_content"
                 android:text="coursename"
                 android:textColor="@color/black"
-                android:textSize="16sp"
+                android:fontFamily="@font/montserrat_bold"
+                android:textSize="14sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -44,11 +45,12 @@
                 android:padding="8dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@color/secondary_color"
+                android:background="@drawable/filter_background"
                 android:layout_marginTop="10sp"
                 android:text="1000 Dt"
-                android:textColor="@color/black"
-                android:textSize="18sp"
+                android:fontFamily="@font/montserrat_regular"
+                android:textColor="@color/white"
+                android:textSize="16sp"
                 android:textStyle="bold" />
 
             <TextView

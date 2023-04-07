@@ -8,15 +8,15 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.najahni.R
+import com.example.najahni.models.Cart
 import com.example.najahni.roomDB.AppDatabase
 import com.example.najahni.views.home.FavoriteAdapter
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 
 
 class CartFragment : Fragment() {
     lateinit var appDatabase: AppDatabase
+    lateinit var listCart : List<Cart>
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -25,13 +25,13 @@ class CartFragment : Fragment() {
         appDatabase = AppDatabase.getDatabase(requireContext())
         val recycler = view.findViewById<RecyclerView>(R.id.recyclerViewCart)
         recycler.layoutManager = LinearLayoutManager(activity)
-        CoroutineScope(Dispatchers.IO).launch {
-            val list = appDatabase.cartDao().getAll()
-            if (!list.isEmpty()) {
-                recycler.adapter = CartAdapter(appDatabase.cartDao().getAll())
-            }
-
+        runBlocking {
+            listCart = appDatabase.cartDao().getAll()
         }
+                if (!listCart.isEmpty()) {
+                    recycler.adapter = CartAdapter(appDatabase.cartDao().getAll())
+                }
+
         return view
     }
 }
