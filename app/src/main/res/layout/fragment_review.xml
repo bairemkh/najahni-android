@@ -23,11 +23,13 @@
                 android:orientation="horizontal">
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:layout_width="0dp"
+                    android:id="@+id/userImgCourseReview"
                     android:layout_height="60dp"
                     android:layout_weight="2"
                     android:src="@drawable/user"/>
                 <TextView
                     android:layout_marginStart="5dp"
+                    android:id="@+id/userNameCourseReview"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
@@ -52,6 +54,7 @@
                 android:textColor="@color/primary_color"
                 android:text="Description"/>
             <TextView
+                android:id="@+id/descriptionCourseReview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/montserrat_regular"

@@ -19,7 +19,7 @@ internal class TabAdapterDetail (var context : Context, fragmentManager: Fragmen
                 LessonsFragment(course)
             }
             1 -> {
-                ReviewFragment()
+                ReviewFragment(course)
             }
             else -> LessonsFragment(course)
         }
