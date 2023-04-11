@@ -4,39 +4,31 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
-    <TextView
-        android:id="@+id/sectionNameLessonCard"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Section 1"
-        android:fontFamily="@font/montserrat_extrabold"
-        android:layout_margin="20dp"
-        android:textSize="27dp"
-        android:textColor="@color/secondary_color"
-        />
     <LinearLayout
         android:id="@+id/cardLessonInfo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center|start"
-        android:padding="10dp"
-        android:weightSum="7"
-        android:paddingHorizontal="10dp">
+        android:paddingVertical="10dp"
+        android:paddingStart="20dp"
+        android:weightSum="7">
         <TextView
             android:id="@+id/lessonIndexList"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_marginEnd="10dp"
+            android:layout_gravity="start"
             android:textAlignment="center"
             android:text="1"
-            android:padding="5dp"
+            android:padding="3dp"
             android:textColor="@color/primary_color"
-            android:textSize="30dp"
             android:background="@drawable/circle_background"
+            android:textSize="18dp"
             android:fontFamily="@font/montserrat_bold"/>
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_weight="6"
+            android:layout_gravity="center"
             android:layout_marginRight="20dp"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -44,7 +36,7 @@
                 android:id="@+id/lessonNameList"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="25sp"
+                android:textSize="13sp"
                 android:fontFamily="@font/montserrat_bold"
                 android:text="Lesson name"/>
             <TextView
@@ -53,6 +45,7 @@
                 android:layout_height="wrap_content"
                 android:maxLines="1"
                 android:fontFamily="@font/montserrat_regular"
+                android:textSize="7dp"
                 android:text="Duration"/>
         </LinearLayout>
         <ImageView
@@ -60,7 +53,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/baseline_lock_24"
-            android:padding="10dp"
+            android:padding="5dp"
+            android:foregroundGravity="right"
+            android:layout_gravity="right"
             android:background="@drawable/circle_background"
             app:tint="@color/primary_color" />
     </LinearLayout>

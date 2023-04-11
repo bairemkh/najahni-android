@@ -37,6 +37,7 @@ class LoginView : AppCompatActivity() {
             startActivity(intent)
         }
         findViewById<Button>(R.id.loginBtn).setOnClickListener {
+            it.isClickable = false
             viewModel.onLoginClicked(
                 findViewById<EditText>(R.id.loginEmail).text.toString(),
                 findViewById<EditText>(R.id.loginPassword).text.toString()
@@ -48,9 +49,11 @@ class LoginView : AppCompatActivity() {
         }
         viewModel.loginSuccess.observe(this, Observer {
             if (!it) {
-                    Toast.makeText(this, viewModel.message.value, Toast.LENGTH_LONG).show()
+                findViewById<Button>(R.id.loginBtn).isClickable = true;
+                Toast.makeText(this, viewModel.message.value, Toast.LENGTH_LONG).show()
             }
             else{
+                findViewById<Button>(R.id.loginBtn).isClickable = true
                 Log.e("token",viewModel.token.value.orEmpty())
                val sharedPreferences: SharedPreferences = getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE)
                SharedPrefsNajahni.setToken(sharedPreferences, viewModel.token.value.orEmpty())

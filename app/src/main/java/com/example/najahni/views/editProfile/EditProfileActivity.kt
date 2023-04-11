@@ -33,19 +33,9 @@ class EditProfileActivity : AppCompatActivity() {
         setContentView(R.layout.activity_edit_profile)
         viewModel = ViewModelProvider(this)[com.example.najahni.views.editProfile.EditProfileViewModel::class.java]
         findViewById<FloatingActionButton>(R.id.changeImageBtn).setOnClickListener {
-            val requestPermissionLauncher =
-                registerForActivityResult(
-                    ActivityResultContracts.RequestPermission()
-                ) { isGranted: Boolean ->
-                    if (isGranted) {
-                        val intent = Intent(Intent.ACTION_PICK)
-                        intent.type = "image/*"
-                        startActivityForResult(intent, 200)
-                    } else {
-                        Toast.makeText(this,"You can't change the image unless you give access",Toast.LENGTH_LONG).show()
-                    }
-                }
-
+            val intent = Intent(Intent.ACTION_PICK)
+            intent.type = "image/*"
+            startActivityForResult(intent, 200)
         }
         findViewById<EditText>(R.id.editfirstname).setText(CurrentUser.firstname)
         findViewById<EditText>(R.id.editlastname).setText(CurrentUser.lastname)

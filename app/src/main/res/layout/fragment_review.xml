@@ -35,12 +35,12 @@
                     android:layout_weight="2"
                     android:text="Trainer"
                     android:fontFamily="@font/montserrat_bold"
-                    android:textSize="20sp"
+                    android:textSize="15sp"
                     android:textColor="@color/primary_color"
                     />
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="40dp"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
                         android:layout_weight="2"
                         android:src="@drawable/baseline_chat_24"
                         app:tint="@color/primary_color" />
@@ -48,7 +48,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="25sp"
+                android:textSize="20sp"
                 android:fontFamily="@font/montserrat_bold"
                 android:layout_marginVertical="25dp"
                 android:textColor="@color/primary_color"
