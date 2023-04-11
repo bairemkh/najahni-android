@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.najahni.R
 import com.example.najahni.models.Course
 import com.example.najahni.views.courseDetail.LessonsAdapter
+import com.example.najahni.views.courseDetail.SectionsAdapter
 
 class LessonsFragment(val course: Course) : Fragment() {
 
@@ -21,7 +22,7 @@ class LessonsFragment(val course: Course) : Fragment() {
         val view = inflater.inflate(R.layout.fragment_lessons, container, false)
         val recView= view.findViewById<RecyclerView>(R.id.recyclerViewLessonsCourseDetail)
         Log.e("List ======",course.sections.toString())
-        recView.adapter = LessonsAdapter(course.sections)
+        recView.adapter = SectionsAdapter(course.sections)
         return view
     }
 }

@@ -2,6 +2,7 @@ package com.example.najahni.bottombarnavigation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import com.example.najahni.R
 import com.example.najahni.models.CurrentUser
@@ -19,6 +20,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_hosting_bottom_bar_nav)
+        if(CurrentUser.getCurrentUser()==null){
+            Log.e("error","Null user")
+        }
         appDatabase = AppDatabase.getDatabase(this)
         loadFragment(HomeFragment())
         findViewById<BottomNavigationView>(R.id.bottomNavigationView).setOnItemSelectedListener {
