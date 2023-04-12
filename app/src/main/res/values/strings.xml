@@ -36,4 +36,6 @@
     <string name="email_edit">Enter your email</string>
     <string name="change_password">Change your password ?</string>
     <string name="edit_profile">Edit profile</string>
+    <string name="all_courses">All Courses</string>
+    <string name="recommended_courses">Recommended courses</string>
 </resources>
