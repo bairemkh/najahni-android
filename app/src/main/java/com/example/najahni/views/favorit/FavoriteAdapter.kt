@@ -22,6 +22,10 @@ class FavoriteAdapter (val courses : List<Favorits>) : RecyclerView.Adapter<Favo
         return courses.size
     }
 
+    fun deleteItem(i: Int){
+        courses.drop(i)
+        notifyDataSetChanged()
+    }
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val course = courses[position]
         Picasso.get().load(Consts.BASE_URL1 + course.image).into(holder.courseimg)

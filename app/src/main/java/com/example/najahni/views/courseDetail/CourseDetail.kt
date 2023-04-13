@@ -1,16 +1,22 @@
 package com.example.najahni.views.courseDetail
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.viewModelScope
 import androidx.viewpager.widget.ViewPager
 import com.example.najahni.R
 import com.example.najahni.models.Cart
 import com.example.najahni.models.Course
 import com.example.najahni.models.Favorits
 import com.example.najahni.roomDB.AppDatabase
+import com.example.najahni.roomDB.FavoritViewModel
 import com.example.najahni.utils.Consts
 import com.example.najahni.utils.Consts.SELECTED_COURSE_INTENT
 import com.google.android.material.chip.Chip
@@ -26,12 +32,13 @@ import kotlinx.coroutines.launch
 class CourseDetail : AppCompatActivity() {
     private lateinit var tablayout : TabLayout
     private lateinit var viewPager : ViewPager
-    private lateinit var appDb : AppDatabase
     private lateinit var course : Favorits
+    private lateinit var favoritViewModel: FavoritViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_course_detail)
-        appDb = AppDatabase.getDatabase(this)
+        favoritViewModel = ViewModelProvider(this)[FavoritViewModel::class.java]
+
         val selectedCourse = intent.getSerializableExtra(SELECTED_COURSE_INTENT) as Course
         tablayout = findViewById(R.id.tablayoutdetail)
         val favbtn = findViewById<FloatingActionButton>(R.id.addCourseToFavBtn)
@@ -58,7 +65,7 @@ class CourseDetail : AppCompatActivity() {
             val favorits = Favorits(
                 null,selectedCourse.id!!,selectedCourse.title,selectedCourse.image
             )
-            addFavorite(favorits)
+            addFavorite(this,favorits)
         }
 
         if(selectedCourse.isPaid){
@@ -67,7 +74,7 @@ class CourseDetail : AppCompatActivity() {
                 val carts = Cart(
                     null,selectedCourse.id!!,selectedCourse.title,selectedCourse.image,selectedCourse.price
                 )
-                addCart(carts)
+
             }
         }
         viewPager = findViewById(R.id.viewLoaderdetail)
@@ -90,33 +97,10 @@ class CourseDetail : AppCompatActivity() {
 
         })
     }
-    private fun addFavorite(favorits: Favorits){
-        GlobalScope.launch(Dispatchers.IO){
-            var favoritsf = appDb.favoritDao().findById(favorits._id)
-            if(favoritsf?._id.isNullOrBlank()){
-                appDb.favoritDao().insert(favorits)
-            }
-            else if(favorits._id != favoritsf._id!!){
-                appDb.favoritDao().insert(favorits)
-            } else {
-                appDb.favoritDao().delete(favoritsf)
-            }
-
-        }
+    private fun addFavorite(context:Context,favorits: Favorits){
+        favoritViewModel.insertFavorit(context,favorits)
         Toast.makeText(this,"Add with success",Toast.LENGTH_SHORT).show()
     }
 
-    private fun addCart(cart: Cart){
-        GlobalScope.launch(Dispatchers.IO){
-            var cartf = appDb.cartDao().findById(cart._id)
-            if(cartf?._id.isNullOrBlank()){
-                appDb.cartDao().insert(cart)
-            }
-            else if(cart._id != cartf._id!!){
-                appDb.cartDao().insert(cart)
-            }
-
-        }
-    }
 }
 

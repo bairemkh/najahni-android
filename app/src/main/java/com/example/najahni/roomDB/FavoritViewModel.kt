@@ -9,18 +9,18 @@ import androidx.lifecycle.viewModelScope
 import com.example.najahni.models.Favorits
 import kotlinx.coroutines.launch
 
-class FavoritViewModel(val con: Context) : ViewModel() {
-   var readAllData : List<Favorits>? = null
+class FavoritViewModel : ViewModel() {
+    var favoritsList: LiveData<List<Favorits>>? = null
+    fun insertFavorit(context: Context,favorits: Favorits){
+        FavoritRepository.addFavorit(context,favorits)
+    }
 
+    fun favoritList(context: Context): LiveData<List<Favorits>>? {
+        favoritsList = FavoritRepository.favoritList(context)
+        return favoritsList
+    }
 
-   fun insert(favorits: Favorits){
-       FavoritRepository(AppDatabase.getDatabase(con).favoritDao()).addFavorit(favorits)
-   }
-   fun read(context: Context) {
-       viewModelScope.launch {
-           readAllData = FavoritRepository(AppDatabase.getDatabase(context).favoritDao()).readAllData
-           Log.e("test ========>",readAllData.toString())
-       }
-
-   }
+    fun deleteFavorit(context: Context,favorits: Favorits){
+        FavoritRepository.deleteFavorit(context,favorits)
+    }
 }

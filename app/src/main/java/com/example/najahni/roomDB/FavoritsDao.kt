@@ -1,5 +1,6 @@
 package com.example.najahni.roomDB
 
+import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.example.najahni.models.Favorits
 
@@ -8,7 +9,7 @@ import com.example.najahni.models.Favorits
 interface FavoritsDao {
 
     @Query("SELECT * FROM favorite_course")
-    fun getAll():List<Favorits>
+    fun getAll():LiveData<List<Favorits>>
 
     @Query("SELECT * FROM favorite_course WHERE _id LIKE :id LIMIT 1")
     suspend fun findById(id : String): Favorits
