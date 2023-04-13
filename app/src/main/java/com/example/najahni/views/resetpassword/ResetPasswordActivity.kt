@@ -24,17 +24,19 @@ class ResetPasswordActivity : AppCompatActivity() {
             val pwd = findViewById<EditText>(R.id.newpassword).text.toString()
             val confirmPwd = findViewById<EditText>(R.id.confirmpassword).text.toString()
 
-            if(pwd.equals(confirmPwd)){
-                val sharedPreferences: SharedPreferences = getSharedPreferences(SharedPrefsNajahni.SHARED_PREFS, Context.MODE_PRIVATE)
+            if (pwd.equals(confirmPwd)) {
+                val sharedPreferences: SharedPreferences =
+                    getSharedPreferences(SharedPrefsNajahni.SHARED_PREFS, Context.MODE_PRIVATE)
                 val token = SharedPrefsNajahni.getToken(sharedPreferences)
-                viewModel.resetPasswordClicked(token,pwd)
+                viewModel.resetPasswordClicked(token, pwd)
             }
         }
 
-        viewModel.loginSuccess.observe(this){
-            if(it){
+        viewModel.loginSuccess.observe(this) {
+            if (it) {
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
+                finish()
             } else {
                 Toast.makeText(this, viewModel.message.value, Toast.LENGTH_LONG).show()
             }

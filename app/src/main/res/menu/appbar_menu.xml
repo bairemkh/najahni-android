@@ -5,10 +5,10 @@
         android:id="@+id/nav_notification"
         android:title="notification"
         app:showAsAction="ifRoom"
-        android:icon="@drawable/baseline_notifications_24"/>
+        android:icon="@drawable/notif" />
     <item
         android:id="@+id/nav_messages"
         android:title="messages"
         app:showAsAction="ifRoom"
-        android:icon="@drawable/baseline_chat_24"/>
+        android:icon="@drawable/chat" />
 </menu>

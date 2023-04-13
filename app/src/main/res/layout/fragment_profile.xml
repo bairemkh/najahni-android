@@ -82,13 +82,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:clickable="true"
                 android:orientation="horizontal"
                 android:paddingLeft="25dp">
 
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:src="@drawable/baseline_edit_24" />
+                    android:src="@drawable/edit"
+                    app:tint="@color/primary_color" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -113,7 +115,8 @@
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:src="@drawable/baseline_settings_24" />
+                    android:src="@drawable/setting"
+                    app:tint="@color/primary_color"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -138,7 +141,8 @@
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:src="@drawable/baseline_policy_24" />
+                    android:src="@drawable/privcy"
+                    app:tint="@color/primary_color"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -163,7 +167,7 @@
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:src="@drawable/baseline_portrait_24"
+                    android:src="@drawable/trainer"
                     app:tint="@color/secondary_color" />
 
                 <TextView
@@ -184,13 +188,14 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
+                android:clickable="true"
                 android:orientation="horizontal"
                 android:paddingLeft="25dp">
 
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:src="@drawable/baseline_logout_24"
+                    android:src="@drawable/logout"
                     app:tint="@color/danger" />
 
                 <TextView

@@ -72,7 +72,7 @@ class CourseDetail : AppCompatActivity() {
         }
         viewPager = findViewById(R.id.viewLoaderdetail)
         tablayout.addTab(tablayout.newTab().setText("Lessons"))
-        tablayout.addTab(tablayout.newTab().setText("Reviews"))
+        tablayout.addTab(tablayout.newTab().setText("About"))
         tablayout.tabGravity = TabLayout.GRAVITY_FILL
 
         val adapter = TabAdapterDetail(this,supportFragmentManager,tablayout.tabCount,selectedCourse)

@@ -61,4 +61,14 @@ interface IUserRetrofit {
         @Field("password") password: String,
         @Field("newpassword") newPassword: String
     ): Call<ResponseBody>
+
+    @POST("user/google-signin")
+    @FormUrlEncoded
+    fun googleSignIn(
+        @Field("email") email: String,
+        @Field("password") password: String,
+        @Field("firstname") firstname: String,
+        @Field("lastname") lastname: String,
+        @Field("image") image: String,
+    ): Call<ResponseBody>
 }

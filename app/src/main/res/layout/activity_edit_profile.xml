@@ -44,7 +44,7 @@
                 app:layout_anchor="@id/editProfileImage"
                 android:layout_gravity="bottom|end"
                 android:clickable="true"
-                android:src="@drawable/baseline_settings_24"
+                android:src="@drawable/down"
                 app:tint="@color/white"
                 />
         </FrameLayout>
