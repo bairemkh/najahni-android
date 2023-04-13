@@ -30,7 +30,7 @@ abstract class SwipeGesture(context: Context) : ItemTouchHelper.SimpleCallback(0
     ) {
         RecyclerViewSwipeDecorator.Builder(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive)
             .addSwipeRightBackgroundColor(deleteColor)
-            .addSwipeRightActionIcon(com.example.najahni.R.drawable.setting)
+            .addSwipeRightActionIcon(com.example.najahni.R.drawable.remove)
             .create()
             .decorate()
         super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive)
