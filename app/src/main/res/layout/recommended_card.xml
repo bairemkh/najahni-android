@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="200dp"
+    android:layout_height="230dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="15dp"
+    app:cardElevation="10dp"
+    android:layout_margin="10dp"
+    android:layout_gravity="center|top">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <ImageView
+            android:id="@+id/imageRecommended"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:src="@drawable/user"
+            android:scaleType="centerCrop"/>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="8dp">
+            <TextView
+                android:id="@+id/courseNameRecommended"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="nameCourse"
+                android:layout_marginBottom="4dp"
+                android:maxLines="2"
+                android:textColor="@color/black"
+                android:fontFamily="@font/montserrat_extrabold"
+                />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="start|center_vertical"
+                android:orientation="horizontal">
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="35dp"
+                    android:id="@+id/imageCreatorRecommended"
+                    android:layout_height="35dp"
+                    android:src="@drawable/user"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:id="@+id/creatorNameRecommended"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:textColor="@color/black"
+                    android:text="Creator name"
+                    android:fontFamily="@font/montserrat_bold"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+</androidx.cardview.widget.CardView>
