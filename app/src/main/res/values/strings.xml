@@ -37,4 +37,6 @@
     <string name="change_password">Change your password ?</string>
     <string name="edit_profile">Edit profile</string>
     <string name="default_web_client_id">547830882551-2b52padj2jdim11ru6qv6th499l8b3ge.apps.googleusercontent.com</string>
+    <string name="all_courses">All Courses</string>
+    <string name="recommended_courses">Recommended courses</string>
 </resources>
