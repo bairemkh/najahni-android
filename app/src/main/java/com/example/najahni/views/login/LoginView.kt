@@ -80,7 +80,7 @@ class LoginView : AppCompatActivity() {
                 SharedPrefsNajahni.setToken(sharedPreferences, viewModel.token.value.orEmpty())
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
-
+                finish()
             }
         })
 
