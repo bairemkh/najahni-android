@@ -16,7 +16,7 @@ import com.squareup.picasso.Picasso
 class CartAdapter (val courses : List<Cart>) : RecyclerView.Adapter<CartAdapter.ViewHolder> (){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.favorite_card,parent,false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.card_cart,parent,false)
         return ViewHolder(view)
     }
 
@@ -28,10 +28,12 @@ class CartAdapter (val courses : List<Cart>) : RecyclerView.Adapter<CartAdapter.
         val course = courses[position]
         Picasso.get().load(Consts.BASE_URL1 + course.image).into(holder.courseimg)
         holder.title.text = course.title
+        holder.price.text = course.price.toString() + "DT"
     }
 
     class ViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
-        val courseimg: ImageView = itemView.findViewById(R.id.favcardimg)
-        val title: TextView = itemView.findViewById(R.id.favcoursename)
+        val courseimg: ImageView = itemView.findViewById(R.id.cartcardimg)
+        val title: TextView = itemView.findViewById(R.id.cartcoursename)
+        val price: TextView = itemView.findViewById(R.id.cartcourseprice)
     }
 }

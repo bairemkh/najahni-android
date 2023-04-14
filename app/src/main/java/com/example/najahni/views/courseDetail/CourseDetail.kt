@@ -16,6 +16,7 @@ import com.example.najahni.models.Cart
 import com.example.najahni.models.Course
 import com.example.najahni.models.Favorits
 import com.example.najahni.roomDB.AppDatabase
+import com.example.najahni.roomDB.CartViewModel
 import com.example.najahni.roomDB.FavoritViewModel
 import com.example.najahni.utils.Consts
 import com.example.najahni.utils.Consts.SELECTED_COURSE_INTENT
@@ -34,10 +35,12 @@ class CourseDetail : AppCompatActivity() {
     private lateinit var viewPager : ViewPager
     private lateinit var course : Favorits
     private lateinit var favoritViewModel: FavoritViewModel
+    private lateinit var cartViewModel: CartViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_course_detail)
         favoritViewModel = ViewModelProvider(this)[FavoritViewModel::class.java]
+        cartViewModel = ViewModelProvider(this)[CartViewModel::class.java]
 
         val selectedCourse = intent.getSerializableExtra(SELECTED_COURSE_INTENT) as Course
         tablayout = findViewById(R.id.tablayoutdetail)
@@ -74,6 +77,7 @@ class CourseDetail : AppCompatActivity() {
                 val carts = Cart(
                     null,selectedCourse.id!!,selectedCourse.title,selectedCourse.image,selectedCourse.price
                 )
+                addCart(this,carts)
 
             }
         }
@@ -100,6 +104,11 @@ class CourseDetail : AppCompatActivity() {
     private fun addFavorite(context:Context,favorits: Favorits){
         favoritViewModel.insertFavorit(context,favorits)
         Toast.makeText(this,"Add with success",Toast.LENGTH_SHORT).show()
+    }
+
+    private fun addCart(context: Context,cart: Cart){
+        cartViewModel.insertCart(context,cart)
+        Toast.makeText(this,"Add to Cart",Toast.LENGTH_SHORT).show()
     }
 
 }

@@ -1,12 +1,13 @@
 package com.example.najahni.roomDB
 
+import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.example.najahni.models.Cart
 
 @Dao
 interface CartDao {
     @Query("SELECT * FROM cart_course")
-    fun getAll():List<Cart>
+    fun getAll():LiveData<List<Cart>>
 
     @Query("SELECT * FROM cart_course WHERE _id LIKE :id LIMIT 1")
     suspend fun findById(id : String): Cart
