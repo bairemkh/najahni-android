@@ -26,8 +26,7 @@ class ArchivedCoursesFragment : Fragment() {
         viewModel = ViewModelProvider(this)[HomeViewModel::class.java]
         viewModel.getAllCourses{ list ->
             recycler.layoutManager = LinearLayoutManager(activity)
-            recycler.adapter = CourseAdapter(list.filter { course: Course -> course.idOwner._id == CurrentUser._id})
-
+            recycler.adapter = CourseAdapter(list.filter { course: Course -> course.idOwner._id == CurrentUser._id&& course.isArchived})
         }
         return view
     }

@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.core.content.ContextCompat
+import androidx.core.view.size
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -39,7 +40,7 @@ class HomeFragment : Fragment() {
         Picasso.get().load(Consts.BASE_URL1 + CurrentUser.image).into(view.findViewById<CircleImageView>(R.id.circle_imageView))
         view.findViewById<TextView>(R.id.usernamehome).text =  CurrentUser.firstname + " " + CurrentUser.lastname
         filter = view.findViewById(R.id.filterHomeGroup)
-        val listFilter = mutableListOf<String>("All")
+        val listFilter = mutableListOf("All")
         listFilter.addAll(Field.values().map { it.name })
         listFilter.forEach {
             val chip= Chip(view.context)
@@ -50,13 +51,13 @@ class HomeFragment : Fragment() {
             chip.chipBackgroundColor= ContextCompat.getColorStateList(view.context,R.color.filter_background_colors)
             filter.addView(chip)
         }
+        Log.e("size","size = ${filter.size}")
         filter.setOnCheckedStateChangeListener { _, checkedIds ->
             checkedIds.forEach { t-> val sel =view.findViewById<Chip>(t)
-                Log.e("tap",sel.id.toString())
-            if(sel.id==1){
+            if(sel.text=="All"){
                 displayList.value = allList
             }else{
-                val filter= Field.values()[sel.id-2]
+                val filter= Field.values().find { f->f==Field.valueOf(sel.text.toString()) }
                 displayList.value = allList.filter { course -> course.fields.contains(filter) }
             }
             }
