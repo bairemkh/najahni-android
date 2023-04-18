@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
     <LinearLayout
-        android:id="@+id/cardLessonInfo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center|start"
@@ -13,7 +12,7 @@
         android:paddingStart="20dp"
         android:weightSum="7">
         <TextView
-            android:id="@+id/lessonIndexList"
+            android:id="@+id/numLessonEdit"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginEnd="10dp"
@@ -32,14 +31,14 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
             <TextView
-                android:id="@+id/lessonNameList"
+                android:id="@+id/lessonNameEdit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="13sp"
                 android:fontFamily="@font/montserrat_bold"
                 android:text="Lesson name"/>
             <TextView
-                android:id="@+id/lessonDurationList"
+                android:id="@+id/lessonDurationEdit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:maxLines="1"
@@ -48,15 +47,15 @@
                 android:text="Duration"/>
         </LinearLayout>
         <ImageView
-            android:id="@+id/lessonIsUnlockedList"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/baseline_lock_24"
+            android:id="@+id/editLessonBtn"
+            android:layout_width="35dp"
+            android:layout_marginHorizontal="10dp"
+            android:layout_height="35dp"
+            android:src="@drawable/edit"
             android:padding="5dp"
             android:foregroundGravity="right"
             android:layout_gravity="right"
             android:background="@drawable/circle_background"
             app:tint="@color/primary_color" />
     </LinearLayout>
-
 </LinearLayout>
