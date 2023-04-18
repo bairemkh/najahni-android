@@ -53,6 +53,5 @@
             android:animateLayoutChanges="true"
             android:textAlignment="center"
             android:text="@string/next"/>
-
     </LinearLayout>
 </LinearLayout>
