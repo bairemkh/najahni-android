@@ -1,16 +1,10 @@
 package com.example.najahni.services.implementation
 
 import android.util.Log
-import com.example.najahni.models.Course
-import com.example.najahni.models.Lesson
-import com.example.najahni.models.Section
-import com.example.najahni.models.User
+import com.example.najahni.models.*
 import com.example.najahni.models.enums.Field
 import com.example.najahni.models.enums.Level
-import com.example.najahni.models.enums.Role
 import com.example.najahni.services.retrofitInterfaces.ICourseRetrofit
-import com.example.najahni.services.retrofitInterfaces.IUserRetrofit
-import com.example.najahni.utils.ApiResponseHandling
 import com.example.najahni.utils.Consts
 import com.example.najahni.utils.IService
 import com.google.gson.Gson
@@ -74,7 +68,8 @@ object CourseService : IService<Course> {
             UserService.makeUserFromJson(jsonObject.get("idowner") as JsonObject),
             jsonObject.get("sections").asJsonArray.map { obj-> Section.jsonToSection(obj.asJsonObject)},
             jsonObject.get("isArchived").asBoolean,
-            jsonObject.get("lesson_number").asInt
+            jsonObject.get("lesson_number").asInt,
+            jsonObject.get("quiz").asJsonArray.map { t-> Quiz.jsonToQuiz(t.asJsonObject) }
         )
     }
 }

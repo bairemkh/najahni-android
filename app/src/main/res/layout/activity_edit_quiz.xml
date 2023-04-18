@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:context=".views.addCourse.EditQuiz">
+    <LinearLayout
+        android:id="@+id/questionIndexEditQuiz"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Question 1"
+            android:textSize="22dp"
+            android:layout_marginVertical="18dp"
+            android:fontFamily="@font/montserrat_bold"
+            android:textColor="@color/primary_color"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/questionFieldEditQuiz"
+            android:gravity="start"
+            android:padding="10dp"
+            android:lines="4"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/montserrat_regular"
+            android:background="@drawable/edit_text_background"
+            android:textSize="16sp"
+            android:hint="Put the question"
+            />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/addPropEditQuiz"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:iconPadding="10dp"
+            android:paddingVertical="15dp"
+            app:iconGravity="textEnd"
+            android:text="@string/add_a_proposition"
+            android:fontFamily="@font/montserrat_bold"
+            android:drawableEnd="@drawable/baseline_add_24"
+            app:icon="@drawable/baseline_add_24"
+            android:textColor="@color/white"
+            app:iconTint="@color/white"
+            android:backgroundTint="@color/primary_color"
+            android:layout_gravity="center"
+            />
+        <LinearLayout
+            android:id="@+id/propositionsEditQuiz"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp">
+                <TextView
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Prop 1"
+                    android:layout_marginVertical="20dp"
+                    android:textSize="22dp"
+                    android:fontFamily="@font/montserrat_bold"/>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

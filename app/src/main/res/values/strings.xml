@@ -44,4 +44,6 @@
     <string name="course_title">Course title</string>
     <string name="price">Price</string>
     <string name="returnBack">Return</string>
+    <string name="create_lessons">Create Lessons</string>
+    <string name="add_a_proposition">Add a Proposition</string>
 </resources>

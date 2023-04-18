@@ -34,7 +34,7 @@ object GoogleService {
             }
 
             override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
-                Log.e("error", "${t.message}")
+                Log.e("error google", "${t.message}")
                 responseHandler.onFailure(t.message.toString())
             }
         })
