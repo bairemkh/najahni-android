@@ -16,7 +16,7 @@ import retrofit2.Callback
 import retrofit2.Response
 
 object CourseService : IService<Course> {
-    val api: ICourseRetrofit = Consts.retrofit.create(ICourseRetrofit::class.java)
+    private val api: ICourseRetrofit = Consts.retrofit.create(ICourseRetrofit::class.java)
     override fun create(o: Course) {
         TODO("Not yet implemented")
     }
@@ -69,7 +69,7 @@ object CourseService : IService<Course> {
             jsonObject.get("sections").asJsonArray.map { obj-> Section.jsonToSection(obj.asJsonObject)},
             jsonObject.get("isArchived").asBoolean,
             jsonObject.get("lesson_number").asInt,
-            jsonObject.get("quiz").asJsonArray.map { t-> Quiz.jsonToQuiz(t.asJsonObject) }
+            jsonObject.get("quiz").asJsonArray.map { t-> Quiz.jsonToQuiz(t.asJsonObject) }.toMutableList()
         )
     }
 }

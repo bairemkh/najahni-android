@@ -7,7 +7,6 @@
     android:fillViewport="true"
     tools:context=".views.addCourse.EditQuiz">
     <LinearLayout
-        android:id="@+id/questionIndexEditQuiz"
         android:layout_width="match_parent"
         android:orientation="vertical"
         android:padding="10dp"
@@ -15,7 +14,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Question 1"
+            android:id="@+id/questionIndexEditQuiz"
+            android:text="Question"
             android:textSize="22dp"
             android:layout_marginVertical="18dp"
             android:fontFamily="@font/montserrat_bold"
@@ -53,21 +53,15 @@
             android:id="@+id/propositionsEditQuiz"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="10dp">
-                <TextView
-                    android:layout_gravity="center"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Prop 1"
-                    android:layout_marginVertical="20dp"
-                    android:textSize="22dp"
-                    android:fontFamily="@font/montserrat_bold"/>
-            </androidx.cardview.widget.CardView>
         </LinearLayout>
-
+    <Button
+        android:id="@+id/confirmEditQuizBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/confirm"
+        android:layout_gravity="bottom"
+        android:layout_marginTop="50dp"
+        android:fontFamily="@font/montserrat_bold"/>
     </LinearLayout>
 
 </ScrollView>

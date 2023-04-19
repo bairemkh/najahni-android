@@ -12,6 +12,9 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import com.example.najahni.R
+import com.example.najahni.models.Course
+import com.example.najahni.models.CurrentUser
+import com.example.najahni.models.enums.Level
 
 
 class AddCourseActivity : AppCompatActivity() {
@@ -22,6 +25,9 @@ class AddCourseActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_course)
+        var course=Course(null,"","", listOf(),Level.Beginner,"",false,0.toDouble(),CurrentUser.getCurrentUser()!!,
+            listOf(),false,0, mutableListOf()
+        )
         val animationOut: Animation = AnimationUtils.loadAnimation(this, androidx.appcompat.R.anim.abc_fade_out)
         val animationIn: Animation = AnimationUtils.loadAnimation(this, androidx.appcompat.R.anim.abc_fade_in)
         prev=findViewById<TextView?>(R.id.pervBtnAddCourse).apply {
@@ -44,7 +50,7 @@ class AddCourseActivity : AppCompatActivity() {
                 2-> {
                     nextPage.startAnimation(animationOut)
                     nextPage.visibility=View.INVISIBLE
-                    loadFragment(AddQuiz())
+                    loadFragment(AddQuiz(course))
                 }
                 1-> {
                     nextPage.startAnimation(animationIn)

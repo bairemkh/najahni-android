@@ -11,6 +11,7 @@ object Consts {
     const val USER_EMAIL_INTENT="userEmail"
     const val USER_PASSWORD_INTENT="userPassword"
     const val SELECTED_COURSE_INTENT="selectedCourse"
+    const val SELECTED_QUIZ_INTENT="selectedQuiz"
 
 
     //val BASE_URL1 = "http://192.168.1.52:9090"
