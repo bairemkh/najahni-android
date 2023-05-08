@@ -15,6 +15,7 @@ import com.example.najahni.bottombarnavigation.MainActivity
 import com.example.najahni.models.CurrentUser
 import com.example.najahni.utils.Consts
 import com.example.najahni.utils.SharedPrefsNajahni
+import com.example.najahni.utils.SocketHandler
 import com.example.najahni.views.editProfile.EditProfileActivity
 import com.example.najahni.views.login.LoginView
 import com.squareup.picasso.Picasso
@@ -27,6 +28,8 @@ class ProfileFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view : View = inflater.inflate(R.layout.fragment_profile, container, false)
+        //val intent = Intent(activity,SocketHandler::class.java)
+        //activity?.startService(intent)
         Picasso.get().load(Consts.BASE_URL1 + CurrentUser.image).into(view.findViewById<CircleImageView>(R.id.profileimg))
         view.findViewById<TextView>(R.id.usernameprifile).text = CurrentUser.firstname + " " + CurrentUser.lastname
         view.findViewById<TextView>(R.id.emailprofile).text = CurrentUser.email
@@ -40,6 +43,7 @@ class ProfileFragment : Fragment() {
             activity.let {
                 val sharedPreferences: SharedPreferences = it?.getSharedPreferences(SharedPrefsNajahni.SHARED_PREFS, Context.MODE_PRIVATE)!!
                 SharedPrefsNajahni.setToken(sharedPreferences, "")
+                activity?.stopService(Intent(activity,SocketHandler::class.java))
                 val intent = Intent(it,LoginView::class.java)
                 it?.startActivity(intent)
                 it?.finish()

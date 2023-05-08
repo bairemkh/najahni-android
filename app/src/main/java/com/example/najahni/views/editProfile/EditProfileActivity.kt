@@ -19,6 +19,7 @@ import com.example.najahni.models.CurrentUser
 import com.example.najahni.utils.Consts
 import com.example.najahni.utils.SharedPrefsNajahni
 import com.example.najahni.views.changepassword.ChangePasswordActivity
+import com.example.najahni.views.login.LoginView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.squareup.picasso.Picasso
 import de.hdodenhof.circleimageview.CircleImageView
@@ -61,7 +62,16 @@ class EditProfileActivity : AppCompatActivity() {
             if(it){
                 CurrentUser.firstname = findViewById<EditText>(R.id.editfirstname).text.toString()
                 CurrentUser.lastname = findViewById<EditText>(R.id.editlastname).text.toString()
-                CurrentUser.email = findViewById<EditText>(R.id.editemail).text.toString()
+                if(CurrentUser.email != findViewById<EditText>(R.id.editemail).text.toString()){
+                    val sharedPreferences: SharedPreferences = getSharedPreferences(SharedPrefsNajahni.SHARED_PREFS, Context.MODE_PRIVATE)!!
+                    SharedPrefsNajahni.setToken(sharedPreferences, "")
+                    val intent = Intent(this, LoginView::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                    startActivity(intent)
+                    
+                }
+
+
                 Toast.makeText(this, viewModel.message.value, Toast.LENGTH_LONG).show()
             } else {
                 Toast.makeText(this, viewModel.message.value, Toast.LENGTH_LONG).show()

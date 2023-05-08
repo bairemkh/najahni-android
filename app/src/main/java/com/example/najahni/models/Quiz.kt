@@ -2,7 +2,7 @@ package com.example.najahni.models
 
 import com.google.gson.JsonObject
 
-data class Quiz(var id:String,var question:String,var propositions:List<String>,var answerIndex:Int){
+data class Quiz(var id:String,var question:String,var propositions:List<String>,var answerIndex:Int):java.io.Serializable{
     companion object{
         fun jsonToQuiz(jsonObject: JsonObject):Quiz{
             return Quiz(

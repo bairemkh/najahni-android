@@ -1,8 +1,10 @@
 package com.example.najahni.views.courseDetail
 
 import android.content.Context
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -20,6 +22,7 @@ import com.example.najahni.roomDB.CartViewModel
 import com.example.najahni.roomDB.FavoritViewModel
 import com.example.najahni.utils.Consts
 import com.example.najahni.utils.Consts.SELECTED_COURSE_INTENT
+import com.example.najahni.utils.SharedPrefsNajahni
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
@@ -36,11 +39,13 @@ class CourseDetail : AppCompatActivity() {
     private lateinit var course : Favorits
     private lateinit var favoritViewModel: FavoritViewModel
     private lateinit var cartViewModel: CartViewModel
+    private lateinit var viewModel: CourseDetailViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_course_detail)
         favoritViewModel = ViewModelProvider(this)[FavoritViewModel::class.java]
         cartViewModel = ViewModelProvider(this)[CartViewModel::class.java]
+        viewModel = ViewModelProvider(this)[CourseDetailViewModel::class.java]
 
         val selectedCourse = intent.getSerializableExtra(SELECTED_COURSE_INTENT) as Course
         tablayout = findViewById(R.id.tablayoutdetail)
@@ -81,6 +86,22 @@ class CourseDetail : AppCompatActivity() {
 
             }
         }
+
+        enrollbtn.setOnClickListener {
+            val sharedPreferences: SharedPreferences = getSharedPreferences(SharedPrefsNajahni.SHARED_PREFS, Context.MODE_PRIVATE)
+            val token = SharedPrefsNajahni.getToken(sharedPreferences)
+            Log.e("id=============>",selectedCourse.id!!)
+            viewModel.enrollInCourse(token,selectedCourse.id!!)
+        }
+
+        viewModel.enrollSucess.observe(this){
+            if(it){
+                Toast.makeText(this, viewModel.message.value, Toast.LENGTH_LONG).show()
+            } else {
+                Toast.makeText(this, viewModel.message.value, Toast.LENGTH_LONG).show()
+            }
+        }
+
         viewPager = findViewById(R.id.viewLoaderdetail)
         tablayout.addTab(tablayout.newTab().setText("Lessons"))
         tablayout.addTab(tablayout.newTab().setText("About"))

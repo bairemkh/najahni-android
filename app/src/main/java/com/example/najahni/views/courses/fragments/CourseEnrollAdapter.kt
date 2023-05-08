@@ -1,5 +1,6 @@
 package com.example.najahni.views.courses.fragments
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,6 +12,8 @@ import com.example.najahni.R
 import com.example.najahni.models.Course
 import com.example.najahni.models.Enroll
 import com.example.najahni.utils.Consts
+import com.example.najahni.views.courseDetail.CourseDetail
+import com.example.najahni.views.coursedetaillesson.CourseDetailLessonActivity
 import com.example.najahni.views.home.CourseAdapter
 import com.squareup.picasso.Picasso
 import kotlin.math.roundToInt
@@ -37,5 +40,10 @@ class CourseEnrollAdapter (val courses : List<Enroll>) : RecyclerView.Adapter<Co
         Picasso.get().load(Consts.BASE_URL1 + course.courseid.image).into(holder.courseimg)
         holder.title.text = course.courseid.title
         holder.progress.progress = course.progress.roundToInt() * 100
+        holder.itemView.setOnClickListener {
+            val intent = Intent(holder.itemView.context, CourseDetailLessonActivity::class.java)
+            intent.putExtra(Consts.SELECTED_COURSELESSON_INTENT, course.courseid)
+            it.context.startActivity(intent)
+        }
     }
 }

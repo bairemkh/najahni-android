@@ -1,5 +1,6 @@
 package com.example.najahni.bottombarnavigation
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -7,6 +8,7 @@ import androidx.fragment.app.Fragment
 import com.example.najahni.R
 import com.example.najahni.models.CurrentUser
 import com.example.najahni.roomDB.AppDatabase
+import com.example.najahni.utils.SocketHandler
 import com.example.najahni.views.cart.CartFragment
 import com.example.najahni.views.courses.CoursesFragment
 import com.example.najahni.views.favorit.FavoriteFragment
@@ -24,6 +26,11 @@ class MainActivity : AppCompatActivity() {
             Log.e("error","Null user")
         }
         appDatabase = AppDatabase.getDatabase(this)
+        val intent = Intent(this, SocketHandler::class.java)
+
+        startService(intent)
+        //SocketHandler.setSocket()
+        //ocketHandler.establishConnection()
         loadFragment(HomeFragment())
         findViewById<BottomNavigationView>(R.id.bottomNavigationView).setOnItemSelectedListener {
                 when (it.itemId) {
