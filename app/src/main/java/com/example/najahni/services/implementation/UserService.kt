@@ -13,6 +13,7 @@ import com.google.gson.Gson
 import com.google.gson.JsonElement
 import com.google.gson.JsonObject
 import okhttp3.MediaType
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import okhttp3.ResponseBody
@@ -50,7 +51,7 @@ object UserService {
     }
 
     fun login(email: String, password: String, responseHandler: ApiResponseHandling) {
-        val response = api.login(email, password).enqueue(object : Callback<ResponseBody> {
+        api.login(email, password).enqueue(object : Callback<ResponseBody> {
             override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
                 if (response.code() == 200) {
                     val body = response.body()?.string().orEmpty()
@@ -197,7 +198,7 @@ object UserService {
     }
 
     fun changeImage (token: String, file: File, responseHandler: ApiResponseHandling){
-        val requestBody = RequestBody.create(MediaType.parse("application/octet-stream"), file)
+        val requestBody = RequestBody.create("application/octet-stream".toMediaTypeOrNull(), file)
         val imagePart = MultipartBody.Part.createFormData("image", file.name, requestBody)
         api.changeImage(token,imagePart).enqueue(object :Callback<ResponseBody>{
             override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {

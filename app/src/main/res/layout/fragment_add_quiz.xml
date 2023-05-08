@@ -34,7 +34,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center|bottom"
-            android:text="Add a new Section"
+            android:text="Add a new Question"
             android:textColor="@color/white"
             android:fontFamily="@font/montserrat_bold"
             android:textSize="14dp"

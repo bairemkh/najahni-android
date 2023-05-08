@@ -87,6 +87,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
+                android:layout_gravity="end"
                 android:orientation="vertical">
                 <ImageView
                     android:layout_width="30dp"
@@ -138,7 +139,7 @@
         app:layout_anchor="@id/nestedScroll"
         app:layout_anchorGravity="bottom|center_horizontal"
         android:fontFamily="@font/montserrat_bold"
-        android:textSize="20dp"
+        android:textSize="12dp"
         android:src="@drawable/baseline_arrow_drop_down_24"
         android:textColor="@color/white"
         />

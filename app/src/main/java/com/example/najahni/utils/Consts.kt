@@ -14,10 +14,11 @@ object Consts {
     const val SELECTED_CONTACT_INTENT="selectedContact"
     const val SELECTED_COURSELESSON_INTENT="selectedCourseEnroll"
     const val SELECTED_LESSON_INTENT="selectedlesson"
+    const val SELECTED_QUIZ_INTENT="selectedQuiz"
+    const val EDIT_MODE="editMode"
 
-
-    //val BASE_URL1 = "http://192.168.1.52:9090"
-    val BASE_URL1 = "http://172.16.5.37:9090"
+   // val BASE_URL1 = "http://192.168.1.52:9090"
+    val BASE_URL1 = "http://10.0.2.2:9090"
     //val BASE_URL="http://192.168.1.52:9090/"
     val BASE_URL="http://172.16.5.37:9090/"
     val retrofit = Retrofit.Builder()

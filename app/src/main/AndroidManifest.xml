@@ -35,6 +35,10 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen" />
         <activity
             android:name=".views.coursedetaillesson.CourseDetailLessonActivity"
+            android:name=".views.quiz.QuizResult"
+            android:exported="false" />
+        <activity
+            android:name=".views.quiz.QuizInterface"
             android:exported="false" />
         <activity
             android:name=".views.addCourse.EditQuiz"

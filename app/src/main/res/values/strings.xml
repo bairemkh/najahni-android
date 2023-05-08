@@ -46,4 +46,14 @@
     <string name="returnBack">Return</string>
     <string name="create_lessons">Create Lessons</string>
     <string name="add_a_proposition">Add a Proposition</string>
+    <string name="confirm">Confirm</string>
+    <string name="lesson_details">Lesson Details</string>
+    <string name="lesson_name">lesson name</string>
+    <string name="click_here_to_import_the_lesson_s_video">Click here to import the lesson\'s video</string>
+    <string name="return_to_home">Return to Home</string>
+    <string name="the_answers">The answers :</string>
+    <string name="congratulations_we_re_so_proud_of_you">Congratulations, we\'re so proud of you. You have passed this quiz successfully. you will receive an email containing your compilation certificate.</string>
+    <string name="congratulations_you_passed_the_quiz">Congratulations, You passed the Quiz</string>
+    <string name="refused_quiz">Sorry, You didn\'t passed the Quiz</string>
+    <string name="refused_quiz_desc">Sorry, You didn\'t passed the Quiz. i think you\'ll do better next time just prepare yourself better next time okay ?</string>
 </resources>

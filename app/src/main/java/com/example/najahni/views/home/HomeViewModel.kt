@@ -11,7 +11,7 @@ class HomeViewModel : ViewModel() {
     var message = MutableLiveData<String>()
     var courses = MutableLiveData<List<Course>>()
 
-    fun getAllCourses(action : (List<Course>) -> Unit)  {
+    fun getAllCourses(action : (List<Course>?) -> Unit)  {
         CourseService.getAllCourses { code, list ->  action(list!!) }
     }
 }

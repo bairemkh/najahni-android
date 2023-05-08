@@ -16,13 +16,13 @@
         android:fontFamily="@font/montserrat_extrabold"
         android:text="@string/create_lessons"
         android:textAlignment="center"
+        android:layout_marginBottom="20dp"
         android:textColor="@color/primary_color"
-        android:textSize="30sp" />
+        android:textSize="26sp" />
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="5"
-        >
+        android:layout_weight="5">
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/editSectionRV"
             android:layout_width="match_parent"

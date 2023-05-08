@@ -24,7 +24,7 @@
             android:textSize="18dp"
             android:fontFamily="@font/montserrat_bold"/>
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_weight="6"
             android:layout_gravity="center"
             android:layout_marginRight="20dp"
@@ -48,14 +48,25 @@
         </LinearLayout>
         <ImageView
             android:id="@+id/editLessonBtn"
-            android:layout_width="35dp"
+            android:layout_width="30dp"
             android:layout_marginHorizontal="10dp"
-            android:layout_height="35dp"
+            android:layout_height="30dp"
             android:src="@drawable/edit"
             android:padding="5dp"
             android:foregroundGravity="right"
             android:layout_gravity="right"
             android:background="@drawable/circle_background"
             app:tint="@color/primary_color" />
+        <ImageView
+            android:id="@+id/deleteLessonBtn"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/remove"
+            android:padding="5dp"
+            android:foregroundGravity="right"
+            android:backgroundTint="@color/danger"
+            android:layout_gravity="right"
+            android:background="@drawable/circle_background"
+            app:tint="@color/danger" />
     </LinearLayout>
 </LinearLayout>

@@ -53,6 +53,7 @@ class CourseDetail : AppCompatActivity() {
         val enrollbtn = findViewById<ExtendedFloatingActionButton>(R.id.enroll_btn)
 
         findViewById<TextView>(R.id.courseNameDetail).text=selectedCourse.title
+        findViewById<TextView>(R.id.courseRateDetail).text=selectedCourse.rating.toString()
         Picasso.get().load(Consts.BASE_URL1 + selectedCourse.image).into(findViewById<ImageView>(R.id.courseImageDetail))
         findViewById<ChipGroup>(R.id.courseDetailsTags).apply {
             selectedCourse.fields.forEach { field ->

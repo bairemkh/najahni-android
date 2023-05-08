@@ -23,10 +23,16 @@ class ArchivedCoursesFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_archived_courses, container, false)
         val recycler = view.findViewById<RecyclerView>(R.id.recyclerViewArchived)
+        var listCourses= listOf<Course>()
         viewModel = ViewModelProvider(this)[HomeViewModel::class.java]
         viewModel.getAllCourses{ list ->
+            listCourses = if(list==null){
+                list!!
+            }else{
+                listOf()
+            }
             recycler.layoutManager = LinearLayoutManager(activity)
-            recycler.adapter = CourseAdapter(list.filter { course: Course -> course.idOwner._id == CurrentUser._id&& course.isArchived})
+            recycler.adapter = CourseAdapter(listCourses.filter { course: Course -> course.idOwner._id == CurrentUser._id&& course.isArchived},true)
         }
         return view
     }

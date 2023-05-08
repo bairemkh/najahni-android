@@ -55,9 +55,6 @@ class SignupViewModel : ViewModel() {
                 fieldsMessage.value="${selectedFields.value!!.size} Fields Selected"
             }
         }
-        /*builder.setPositiveButton("Done"){x,y->
-            fieldsMessage.value="${selectedFields.value!!.size} Fields Selected"
-        }*/
         builder.create().show()
     }
     fun register(user:User){
