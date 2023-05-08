@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
+import android.view.View
 import android.widget.ProgressBar
 import androidx.core.view.isVisible
 import com.example.najahni.R
@@ -26,7 +27,6 @@ class SplashScreen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash_screen)
-        findViewById<ProgressBar>(R.id.splashScreenLoading).isVisible = false
         val sharedPreferences: SharedPreferences = getSharedPreferences(SharedPrefsNajahni.SHARED_PREFS, Context.MODE_PRIVATE)
         val token = SharedPrefsNajahni.getToken(sharedPreferences)
         if(token.isEmpty()){
@@ -37,7 +37,7 @@ class SplashScreen : AppCompatActivity() {
                 finish()
             }, 3000)
         }else{
-            findViewById<ProgressBar>(R.id.splashScreenLoading).isVisible = true
+            findViewById<ProgressBar>(R.id.splashScreenLoading).visibility= View.VISIBLE
             UserService.getUserProfile(token){
                 i, user ->
                 if(i==200){

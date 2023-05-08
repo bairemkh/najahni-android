@@ -8,8 +8,8 @@ data class Quiz(var id:String?=null,var question:String,var propositions:Mutable
             return Quiz(
                 jsonObject.get("_id").asString
                 ,jsonObject.get("question").asString
-                ,jsonObject.get("props").asJsonArray.map { obj-> obj.asString}.toMutableList()
-                ,jsonObject.get("correctIndex").asInt
+                ,jsonObject.get("propositions").asJsonArray.map { obj-> obj.asString}.toMutableList()
+                , jsonObject.get("answerIndex").asInt.toInt()
             )
         }
     }

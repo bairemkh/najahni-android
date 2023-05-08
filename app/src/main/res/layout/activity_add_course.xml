@@ -29,7 +29,7 @@
             android:animateLayoutChanges="true"
             android:fontFamily="@font/montserrat_bold"
             android:textColor="@color/primary_color"
-            android:textSize="23dp"
+            android:textSize="18dp"
             android:text="@string/returnBack"/>
         <TextView
             android:id="@+id/confirmBtnAddCourse"
@@ -40,7 +40,7 @@
             android:textAlignment="center"
             android:fontFamily="@font/montserrat_bold"
             android:textColor="@color/primary_color"
-            android:textSize="23dp"
+            android:textSize="18dp"
             android:text="Confirm"/>
         <TextView
             android:id="@+id/nextBtnAddCourse"
@@ -49,7 +49,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat_bold"
             android:textColor="@color/primary_color"
-            android:textSize="23dp"
+            android:textSize="18dp"
             android:animateLayoutChanges="true"
             android:textAlignment="center"
             android:text="@string/next"/>

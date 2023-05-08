@@ -12,6 +12,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.najahni.R
 import com.example.najahni.models.Course
 import com.example.najahni.models.CurrentUser
+import com.example.najahni.utils.Consts
+import com.example.najahni.utils.Consts.EDIT_MODE
 import com.example.najahni.views.addCourse.AddCourseActivity
 import com.example.najahni.views.editProfile.EditProfileActivity
 import com.example.najahni.views.home.CourseAdapter
@@ -29,12 +31,13 @@ class CoursesTrainerFragment : Fragment() {
         viewModel = ViewModelProvider(this)[HomeViewModel::class.java]
         viewModel.getAllCourses{ list ->
             recycler.layoutManager = LinearLayoutManager(activity)
-            recycler.adapter = CourseAdapter(list.filter { course: Course -> course.idOwner._id == CurrentUser._id && !course.isArchived })
+            recycler.adapter = CourseAdapter(list!!.filter { course: Course -> course.idOwner._id == CurrentUser._id && !course.isArchived },true)
 
         }
         view.findViewById<FloatingActionButton>(R.id.addCourseBtn).setOnClickListener {
             activity.let {
                 val intent = Intent(it, AddCourseActivity::class.java)
+                intent.putExtra(EDIT_MODE,1)
                 it?.startActivity(intent)
             }
         }

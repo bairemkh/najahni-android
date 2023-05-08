@@ -1,6 +1,5 @@
 package com.example.najahni.views.addCourse
 
-import android.app.Activity.RESULT_OK
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -13,19 +12,20 @@ import com.example.najahni.R
 import com.example.najahni.models.Course
 import com.example.najahni.models.Quiz
 import com.example.najahni.utils.Consts
+import com.example.najahni.views.addCourse.adapters.EditQuizListAdapter
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
 import java.util.*
 
 class AddQuiz(var course: Course) : Fragment() {
     lateinit var recyclerView:RecyclerView
-    lateinit var adapter:EditQuizListAdapter
+    lateinit var adapter: EditQuizListAdapter
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val view= inflater.inflate(R.layout.fragment_add_quiz, container, false)
         recyclerView=view.findViewById(R.id.editQuizRV)
-         adapter =EditQuizListAdapter(course.quiz){quiz,position->
+         adapter = EditQuizListAdapter(course.quiz){ quiz, position->
             val intent = Intent(view.context, EditQuiz::class.java)
             intent.putExtra(Consts.SELECTED_QUIZ_INTENT, quiz)
             intent.putExtra("indexQuest", position+1)

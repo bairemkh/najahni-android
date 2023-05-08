@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="30dp">
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/lesson_details"
+    android:layout_gravity="center"
+    android:fontFamily="@font/montserrat_bold"
+    android:textColor="@color/primary_color"
+    android:textSize="23sp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/lesson_name"
+        android:fontFamily="@font/montserrat_regular"
+        android:layout_marginTop="20dp"/>
+    <EditText
+        android:id="@+id/lessonNameEditPopup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/edit_text_background"
+        android:elevation="2dp"
+        android:fontFamily="@font/montserrat_regular"
+        android:hint="@string/lesson_name"
+        android:inputType="textCapWords"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="15dp"
+        android:textSize="18sp" />
+    <TextView
+        android:id="@+id/lessonImportVideoEditPopup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+        android:fontFamily="@font/montserrat_bold"
+        android:textColor="@color/primary_color"
+        android:text="@string/click_here_to_import_the_lesson_s_video"/>
+
+</LinearLayout>

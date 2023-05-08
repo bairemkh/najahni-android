@@ -23,6 +23,7 @@
             android:textColor="@color/primary_color"
             android:textSize="30sp" />
         <ImageView
+            android:id="@+id/courseImageEdit"
             android:layout_width="720px"
             android:layout_height="480px"
             android:scaleType="centerCrop"
@@ -31,8 +32,8 @@
             android:src="@drawable/placeholder_error"
             />
         <EditText
-            android:id="@+id/nameSignup"
-            android:layout_width="wrap_content"
+            android:id="@+id/courseTitleEdit"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginEnd="20dp"
             android:background="@drawable/edit_text_background"
@@ -44,6 +45,7 @@
             android:paddingVertical="15dp"
             android:textSize="18sp" />
         <EditText
+            android:id="@+id/courseDescEdit"
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:layout_marginVertical="20dp"
@@ -60,6 +62,7 @@
             android:gravity="center"
             android:orientation="horizontal">
             <EditText
+                android:id="@+id/coursePriceEdit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
@@ -75,10 +78,11 @@
                 android:paddingVertical="15dp"
                 android:textSize="18sp" />
             <Spinner
+                android:id="@+id/courseLevelEdit"
                 android:layout_weight="2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
+                android:padding="15dp"
                 />
         </LinearLayout>
         <LinearLayout

@@ -1,6 +1,5 @@
-package com.example.najahni.views.addCourse
+package com.example.najahni.views.addCourse.adapters
 
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,9 +8,6 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.najahni.R
 import com.example.najahni.models.Quiz
-import com.example.najahni.utils.Consts
-import com.example.najahni.views.courseDetail.CourseDetail
-import com.example.najahni.views.home.CourseAdapter
 
 class EditQuizListAdapter(val list:MutableList<Quiz>,val onEdit:(Quiz,Int)->Unit): RecyclerView.Adapter<EditQuizListAdapter.ViewHolder> () {
     class ViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
@@ -24,7 +20,7 @@ class EditQuizListAdapter(val list:MutableList<Quiz>,val onEdit:(Quiz,Int)->Unit
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.edit_quiz_card,parent,false)
-        return EditQuizListAdapter.ViewHolder(view)
+        return ViewHolder(view)
     }
 
     override fun getItemCount(): Int {
@@ -42,10 +38,6 @@ class EditQuizListAdapter(val list:MutableList<Quiz>,val onEdit:(Quiz,Int)->Unit
         }
         holder.editQuestionQuizCard.setOnClickListener {
             onEdit(quiz,position)
-            /*val intent = Intent(holder.itemView.context, EditQuiz::class.java)
-            intent.putExtra(Consts.SELECTED_QUIZ_INTENT, quiz)
-            intent.putExtra("indexQuest", position+1)
-            it.context.startActivity(intent)*/
         }
     }
     fun addQuiz(item: Quiz) {

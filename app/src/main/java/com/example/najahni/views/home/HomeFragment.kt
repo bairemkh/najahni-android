@@ -66,13 +66,17 @@ class HomeFragment : Fragment() {
         val recyclerRecommendedCoursesAdapter = view.findViewById<RecyclerView>(R.id.RecommendedCoursesList)
         viewModel = ViewModelProvider(this)[HomeViewModel::class.java]
         viewModel.getAllCourses{ list ->
-            allList=list
+            allList = if(list==null){
+                list!!
+            }else{
+                listOf()
+            }
             recycler.layoutManager = LinearLayoutManager(activity)
-            recycler.adapter = CourseAdapter(list)
+            recycler.adapter = CourseAdapter(list,false)
             recyclerRecommendedCoursesAdapter.adapter = RecommendedCoursesAdapter(list.subList(0,list.size-1))
         }
         displayList.observe(viewLifecycleOwner, Observer { myList ->
-            recycler.adapter=CourseAdapter(myList)
+            recycler.adapter=CourseAdapter(myList,false)
         })
 
 

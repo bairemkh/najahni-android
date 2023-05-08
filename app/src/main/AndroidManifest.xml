@@ -19,6 +19,12 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".views.quiz.QuizResult"
+            android:exported="false" />
+        <activity
+            android:name=".views.quiz.QuizInterface"
+            android:exported="false" />
+        <activity
             android:name=".views.addCourse.EditQuiz"
             android:exported="false" />
         <activity

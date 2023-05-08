@@ -51,6 +51,7 @@ dependencies {
     implementation 'com.squareup.picasso:picasso:2.8'
     implementation 'com.google.android.gms:play-services-auth:20.5.0'
     implementation 'it.xabaras.android:recyclerview-swipedecorator:1.4'
+    implementation 'com.squareup.okhttp3:okhttp:4.9.3'
     annotationProcessor group: 'androidx.databinding', name: 'databinding-compiler', version: '8.1.0-alpha10'
     def room_version = "2.5.0"
     implementation "androidx.room:room-ktx:$room_version"
