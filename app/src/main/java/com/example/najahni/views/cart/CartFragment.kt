@@ -1,6 +1,8 @@
 package com.example.najahni.views.cart
 
 import android.content.Context
+import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -8,6 +10,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.appcompat.widget.AppCompatButton
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.ItemTouchHelper
@@ -18,8 +21,11 @@ import com.example.najahni.models.Cart
 import com.example.najahni.models.Favorits
 import com.example.najahni.roomDB.AppDatabase
 import com.example.najahni.roomDB.CartViewModel
+import com.example.najahni.utils.SharedPrefsNajahni
+import com.example.najahni.views.cart.webview.PayementWebViewActivity
 import com.example.najahni.views.favorit.SwipeGesture
 import com.example.najahni.views.home.FavoriteAdapter
+import com.example.najahni.views.login.LoginView
 import kotlinx.coroutines.*
 
 
@@ -61,6 +67,13 @@ class CartFragment : Fragment() {
                 touchHelper.attachToRecyclerView(recycler)
             }
         })
+
+        view.findViewById<AppCompatButton>(R.id.cartActivityCheckoutBtn).setOnClickListener {
+            activity.let {
+                val intent = Intent(it, PayementWebViewActivity::class.java)
+                it?.startActivity(intent)
+            }
+        }
         return view
     }
 

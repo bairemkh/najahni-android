@@ -37,6 +37,7 @@ class CoursesTrainerFragment : Fragment() {
         view.findViewById<FloatingActionButton>(R.id.addCourseBtn).setOnClickListener {
             activity.let {
                 val intent = Intent(it, AddCourseActivity::class.java)
+
                 intent.putExtra(EDIT_MODE,1)
                 it?.startActivity(intent)
             }

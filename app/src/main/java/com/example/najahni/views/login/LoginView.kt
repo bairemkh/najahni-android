@@ -47,9 +47,8 @@ class LoginView : AppCompatActivity() {
 
         val gso =
             GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
-                .requestProfile()
-                .requestId()
                 .build()
         mGoogleSignInClient = GoogleSignIn.getClient(applicationContext, gso)
 
@@ -100,11 +99,9 @@ class LoginView : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == 10001) {
-            if(resultCode == RESULT_OK){
                 val task =
                     GoogleSignIn.getSignedInAccountFromIntent(data)
                 handleSignInResult(task)
-            }
 
         }
     }

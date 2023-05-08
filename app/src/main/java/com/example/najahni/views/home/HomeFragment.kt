@@ -1,13 +1,18 @@
 package com.example.najahni.views.home
 
+import android.content.Context
+import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.Menu
 import android.view.TextureView
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import androidx.core.view.size
 import androidx.lifecycle.MutableLiveData
@@ -21,6 +26,10 @@ import com.example.najahni.models.enums.Field
 import com.example.najahni.models.CurrentUser
 import com.example.najahni.models.enums.Level
 import com.example.najahni.utils.Consts
+import com.example.najahni.utils.SharedPrefsNajahni
+import com.example.najahni.views.chat.ChatActivity
+import com.example.najahni.views.chat.DiscussionActivity
+import com.example.najahni.views.login.LoginView
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
 import com.squareup.picasso.Picasso
@@ -37,6 +46,18 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view : View = inflater.inflate(R.layout.fragment_home, container, false)
+        val toolbar = view.findViewById<Toolbar>(R.id.toolbar)
+        toolbar.inflateMenu(R.menu.appbar_menu)
+        toolbar.setOnMenuItemClickListener {
+            when(it.itemId){
+                R.id.nav_messages -> {
+                    val intent = Intent(activity,ChatActivity::class.java)
+                    activity?.startActivity(intent)
+                    true
+                }
+                else -> {false}
+            }
+        }
         Picasso.get().load(Consts.BASE_URL1 + CurrentUser.image).into(view.findViewById<CircleImageView>(R.id.circle_imageView))
         view.findViewById<TextView>(R.id.usernamehome).text =  CurrentUser.firstname + " " + CurrentUser.lastname
         filter = view.findViewById(R.id.filterHomeGroup)

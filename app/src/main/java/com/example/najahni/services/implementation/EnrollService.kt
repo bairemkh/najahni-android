@@ -7,6 +7,7 @@ import com.example.najahni.models.enums.Field
 import com.example.najahni.models.enums.Level
 import com.example.najahni.services.retrofitInterfaces.ICourseRetrofit
 import com.example.najahni.services.retrofitInterfaces.IEnrollRetrofit
+import com.example.najahni.utils.ApiResponseHandling
 import com.example.najahni.utils.Consts
 import com.example.najahni.utils.IService
 import com.google.gson.Gson
@@ -59,6 +60,51 @@ object EnrollService : IService<Enroll> {
             override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
                 returningResponse(500, null)
             }
+        })
+    }
+
+    fun enrollInCourse(token: String,courseId:String,responseHandler: ApiResponseHandling){
+        val response = api.enrollInCourse(token,courseId).enqueue(object: Callback<ResponseBody>{
+            override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
+                if (response.code() == 200) {
+                    val body = response.body()?.string().orEmpty()
+                    val gson = Gson()
+                    val jsonElement: JsonElement = gson.fromJson(body, JsonElement::class.java)
+                    val jsonObject = jsonElement.asJsonObject
+
+                    responseHandler.onSuccess(jsonObject.get("message").asString)
+
+                } else
+                    responseHandler.onError(response.code(), response.message())            }
+
+            override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+                Log.e("error", "${t.message}")
+                responseHandler.onFailure(t.message.toString())
+            }
+
+        })
+    }
+
+    fun initPayement(amount: String,responseHandler: ApiResponseHandling) {
+        val response = api.initPayement(amount).enqueue(object :Callback<ResponseBody>{
+            override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
+                if (response.code() == 200) {
+                    val body = response.body()?.string().orEmpty()
+                    val gson = Gson()
+                    val jsonElement: JsonElement = gson.fromJson(body, JsonElement::class.java)
+                    val jsonObject = jsonElement.asJsonObject
+
+                    responseHandler.onSuccess(jsonObject.get("payUrl").asString)
+
+                } else
+                    responseHandler.onError(response.code(), response.message())
+            }
+
+            override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+                Log.e("error", "${t.message}")
+                responseHandler.onFailure(t.message.toString())
+            }
+
         })
     }
 
