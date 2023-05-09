@@ -42,7 +42,8 @@ class CourseEnrollAdapter (val courses : List<Enroll>) : RecyclerView.Adapter<Co
         holder.progress.progress = course.progress.roundToInt() * 100
         holder.itemView.setOnClickListener {
             val intent = Intent(holder.itemView.context, CourseDetailLessonActivity::class.java)
-            intent.putExtra(Consts.SELECTED_COURSELESSON_INTENT, course.courseid)
+            intent.putExtra(Consts.SELECTED_COURSELESSON_INTENT, course)
+            //TODO("Put Enroll instead of course")
             it.context.startActivity(intent)
         }
     }

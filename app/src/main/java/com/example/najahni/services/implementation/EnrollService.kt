@@ -37,7 +37,7 @@ object EnrollService : IService<Enroll> {
     }
 
     fun getAllCourses(token: String,returningResponse : (Int,List<Enroll>?) -> Unit) {
-        val response = EnrollService.api.getMyCourses(token).enqueue(object : Callback<ResponseBody> {
+        val response = api.getMyCourses(token).enqueue(object : Callback<ResponseBody> {
             override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
                 if (response.isSuccessful) {
                     val body = response.body()?.string().orEmpty()
@@ -45,11 +45,10 @@ object EnrollService : IService<Enroll> {
                     val jsonElement: JsonElement = gson.fromJson(body, JsonElement::class.java)
                     val jsonObject = jsonElement.asJsonObject
                     val courses = jsonObject["enrolled"].asJsonArray.map { o ->
-                        EnrollService.makeCourseFromJson(
+                        makeCourseFromJson(
                             o.asJsonObject
                         )
                     }
-                    // Log.e("courses ========", jsonObject.toString())
                     returningResponse(200, courses)
                 } else {
                     Log.e("response 302"," ====> ${response.body()?.string().orEmpty()}")
@@ -107,7 +106,18 @@ object EnrollService : IService<Enroll> {
 
         })
     }
+    fun progress(courseId: String,lessonId:String,token: String,onResult:(Int)->Unit){
+        api.doProgress(token,courseId,lessonId).enqueue(object:Callback<ResponseBody>{
+            override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
+                onResult(response.code())
+            }
 
+            override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+                onResult(0)
+            }
+
+        })
+    }
     fun makeCourseFromJson(jsonObject: JsonObject): Enroll {
         return Enroll(jsonObject.get("_id").asString,
             jsonObject.get("userid").asString,

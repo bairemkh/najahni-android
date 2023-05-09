@@ -3,14 +3,12 @@ package com.example.najahni.views.courseDetail
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.najahni.R
-import com.example.najahni.models.CurrentUser
 import com.example.najahni.models.Section
 
-class SectionsAdapter(val list: List<Section>) :
+class SectionsAdapter(val list: List<Section>,val isOwned:Boolean,val courseId:String) :
     RecyclerView.Adapter<SectionsAdapter.ViewHolder>() {
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val sectionTitle: TextView = itemView.findViewById(R.id.sectionNameLessonCard)
@@ -33,7 +31,8 @@ class SectionsAdapter(val list: List<Section>) :
         holder.sectionTitle.text = "${list[position].title}"
         holder.recyclerView.adapter = LessonsAdapter(
             list[position].lessons,
-            CurrentUser.courses!!.contains(list[position].courseId)
+            courseId,
+            isOwned
         )
 
 
