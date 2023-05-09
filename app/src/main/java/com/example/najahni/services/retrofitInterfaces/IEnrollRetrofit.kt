@@ -14,4 +14,7 @@ interface IEnrollRetrofit {
     @POST("course/initpayement")
     @FormUrlEncoded
     fun initPayement(@Field("amount") amount: String): Call<ResponseBody>
+    @POST("enroll/progress/{id}")
+    @FormUrlEncoded
+    fun doProgress(@Header("Authorization") authorization: String, @Path("id") id:String,@Field("lessonid")lessonId:String): Call<ResponseBody>
 }

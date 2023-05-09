@@ -13,6 +13,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.najahni.R
 import com.example.najahni.models.Course
+import com.example.najahni.models.CurrentUser
 import com.example.najahni.utils.Consts
 import com.example.najahni.views.addCourse.AddCourseActivity
 import com.example.najahni.views.courseDetail.LessonsAdapter
@@ -29,7 +30,7 @@ class LessonsFragment(val course: Course) : Fragment() {
         val view = inflater.inflate(R.layout.fragment_lessons, container, false)
         val recView= view.findViewById<RecyclerView>(R.id.recyclerViewLessonsCourseDetail)
         Log.e("List ======",course.sections.toString())
-        recView.adapter = SectionsAdapter(course.sections)
+        recView.adapter = SectionsAdapter(course.sections,CurrentUser.getCurrentUser()!!.courses!!.contains(course.id),course.id!!)
         view.findViewById<View>(R.id.quizCard).apply {
             this.findViewById<TextView>(R.id.lessonIndexList).apply {
                 text = "Q"

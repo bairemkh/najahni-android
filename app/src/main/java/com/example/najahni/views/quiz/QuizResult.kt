@@ -53,7 +53,7 @@ class QuizResult : AppCompatActivity() {
                 LinearLayout.LayoutParams.WRAP_CONTENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT
             )
-            textView.text = "The answer of question ${entry.key} is : ${entry.value.second}"
+            textView.text = "The answer of question ${entry.key+1} is : ${entry.value.second}"
             textView.textSize = 18f
             textView.setTextColor(if (entry.value.first) ContextCompat.getColor(this, R.color.secondary_color)else ContextCompat.getColor(this, R.color.danger))
             textView.setPadding(10.dpToPx(), 0, 0, 0)
