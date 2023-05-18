@@ -25,11 +25,10 @@
             android:src="@drawable/user" />
 
         <LinearLayout
-            android:layout_width="120dp"
+            android:layout_width="160dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="start"
+            android:layout_gravity="center"
             android:layout_margin="10sp"
-            android:gravity="start"
             android:orientation="vertical">
 
             <TextView
@@ -37,24 +36,31 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="coursename"
-                android:textColor="@color/black"
+                android:fontFamily="@font/montserrat_regular"
+                android:textColor="@color/primary_color"
                 android:textSize="16sp"
                 android:textStyle="bold" />
-
+            <TextView
+                android:id="@+id/lessonsCompleted"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="3 lessons Completed"
+                android:fontFamily="@font/montserrat_bold"
+                android:textColor="@color/secondary_color"
+                android:textSize="13sp"
+                android:textStyle="bold" />
 
         </LinearLayout>
 
-        <ProgressBar
-            android:id="@+id/progress_circular"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:paddingRight="20sp"
-            android:indeterminateOnly="false"
-            android:progressDrawable="@drawable/circular"
-            android:progressBackgroundTint="@color/primary_color"
-            android:progress="60"
-            android:layout_gravity="center"
-            />
-
+<com.google.android.material.progressindicator.CircularProgressIndicator
+    android:id="@+id/progress_circular"
+    android:layout_width="80dp"
+    android:layout_height="80dp"
+    android:background="@drawable/circular"
+    android:indeterminateOnly="false"
+    android:max="100"
+    android:layout_gravity="center"
+    android:progressBackgroundTint="@color/primary_color"
+    />
     </LinearLayout>
 </androidx.cardview.widget.CardView>

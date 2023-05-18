@@ -1,5 +1,6 @@
 package com.example.najahni.views.quiz
 
+import android.content.Context
 import android.content.Intent
 import android.content.res.ColorStateList
 import android.content.res.Resources
@@ -14,12 +15,15 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import com.example.najahni.R
 import com.example.najahni.bottombarnavigation.MainActivity
+import com.example.najahni.services.implementation.EnrollService
+import com.example.najahni.utils.SharedPrefsNajahni
 
 class QuizResult : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_quiz_result)
         val answers= intent.getSerializableExtra("answers") as? MutableMap<Int, Pair<Boolean, String>>
+        val courseId= intent.getStringExtra("courseId")
         val result= answers!!.values.fold(0) { acc, pair ->
             acc + if (pair.first) 1 else 0
         } > (answers.size / 2)
@@ -28,8 +32,19 @@ class QuizResult : AppCompatActivity() {
         findViewById<TextView>(R.id.resultDesc).setText(if (result) R.string.congratulations_we_re_so_proud_of_you else R.string.refused_quiz_desc)
         findViewById<ImageView>(R.id.resultImage).setImageResource(if(result)R.drawable.congrats else R.drawable.failure)
         findViewById<Button>(R.id.goHomeBtn).setOnClickListener {
-            startActivity(Intent(this@QuizResult,MainActivity::class.java))
-            finish()
+            if(result){
+                val sharedPreferences= getSharedPreferences(SharedPrefsNajahni.SHARED_PREFS, Context.MODE_PRIVATE)
+                EnrollService.sendCertificate(courseId!!,SharedPrefsNajahni.getToken(sharedPreferences)){code->
+                    if(code==200){
+                        startActivity(Intent(this@QuizResult,MainActivity::class.java))
+                        finish()
+                    }
+                }
+            }else{
+                startActivity(Intent(this@QuizResult,MainActivity::class.java))
+                finish()
+            }
+
         }
         answers.forEach {entry ->
             val linearLayout = LinearLayout(this)

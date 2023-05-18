@@ -56,4 +56,6 @@
     <string name="congratulations_you_passed_the_quiz">Congratulations, You passed the Quiz</string>
     <string name="refused_quiz">Sorry, You didn\'t passed the Quiz</string>
     <string name="refused_quiz_desc">Sorry, You didn\'t passed the Quiz. i think you\'ll do better next time just prepare yourself better next time okay ?</string>
+    <string name="display_language">Display Language</string>
+    <string name="dark_mode">Dark Mode</string>
 </resources>

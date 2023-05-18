@@ -24,7 +24,10 @@ class LessonsAdapter(val list: List<Lesson>,val courseId: String, val open: Bool
         val duration: TextView = itemView.findViewById(R.id.lessonDurationList)
         val isLocked: ImageView = itemView.findViewById(R.id.lessonIsUnlockedList)
     }
-
+    private var onClicked:((Boolean)->Unit)?=null
+    fun setOnClickedListener(action:(Boolean)->Unit){
+        onClicked=action
+    }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.lesson_card,parent,false)
         return ViewHolder(view)
@@ -45,7 +48,8 @@ class LessonsAdapter(val list: List<Lesson>,val courseId: String, val open: Bool
                         holder.itemView.setOnClickListener {
                             val sharedPreferences = holder.itemView.context.getSharedPreferences(SHARED_PREFS, Context.MODE_PRIVATE)
                             EnrollService.progress(courseId,lesson.id!!,SharedPrefsNajahni.getToken(sharedPreferences)){code->
-                                if(code==200){
+                                if((code>=200)){
+                                    onClicked?.invoke(code==201)
                                     val intent = Intent(holder.itemView.context, VideoPlayerActivity::class.java)
                                     intent.putExtra(Consts.SELECTED_LESSON_INTENT, lesson)
                                     it.context.startActivity(intent)

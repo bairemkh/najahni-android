@@ -24,11 +24,19 @@ class CourseDetailLessonActivity : AppCompatActivity() {
         setContentView(R.layout.activity_course_detail_lesson)
 
         val recView = findViewById<RecyclerView>(R.id.recyclerViewcourselessondetail)
-        val selectedEnroll = intent.getSerializableExtra(Consts.SELECTED_COURSELESSON_INTENT) as Enroll
+        var selectedEnroll = intent.getSerializableExtra(Consts.SELECTED_COURSELESSON_INTENT) as Enroll
         val selectedCourse = selectedEnroll.courseid
-        //TODO("Put Enroll instead of course")
         Log.e("sections","${selectedCourse.sections}")
-        recView.adapter = SectionsAdapter(selectedCourse.sections,true,selectedCourse.id!!)
+        recView.adapter = SectionsAdapter(selectedCourse.sections,true,selectedCourse.id!!).apply {
+            setOnClickedListener {
+                Log.e("hello","in clicked lesson $it")
+                if(it){
+                    Log.e("before","${selectedEnroll.progress}")
+                    selectedEnroll.progress = selectedEnroll.progress+(1/selectedEnroll.courseid.lesson_number)
+                    Log.e("after" ,"${selectedEnroll.progress}")
+                }
+            }
+        }
         findViewById<View>(R.id.quizCard).apply {
             this.findViewById<TextView>(R.id.lessonIndexList).apply {
                 text = "Q"
@@ -43,14 +51,20 @@ class CourseDetailLessonActivity : AppCompatActivity() {
                 this.visibility= View.VISIBLE
             }
             this.findViewById<ImageView>(R.id.lessonIsUnlockedList).apply {
+                var locked=selectedEnroll.progress<selectedCourse.lesson_number/2
+                setImageResource(if(locked) R.drawable.baseline_play_arrow_24 else R.drawable.baseline_lock_24)
                 backgroundTintList= ColorStateList.valueOf(resources.getColor(R.color.secondary_color))
                 imageTintList= ColorStateList.valueOf(resources.getColor(R.color.secondary_color))
                 setOnClickListener {
-                    val intent = Intent(it.context, QuizInterface::class.java)
-                    intent.putExtra(Consts.SELECTED_COURSE_INTENT, selectedCourse)
-                    it.context!!.startActivity(intent)
+                    if(locked){
+                        val intent = Intent(it.context, QuizInterface::class.java)
+                        intent.putExtra(Consts.SELECTED_COURSE_INTENT, selectedCourse)
+                        it.context!!.startActivity(intent)
+                    }
                 }
             }
         }
+        intent.putExtra(Consts.SELECTED_COURSELESSON_INTENT,selectedEnroll)
+        setResult(RESULT_OK, intent)
     }
 }

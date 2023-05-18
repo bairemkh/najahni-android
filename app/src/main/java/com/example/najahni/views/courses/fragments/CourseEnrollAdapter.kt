@@ -15,6 +15,7 @@ import com.example.najahni.utils.Consts
 import com.example.najahni.views.courseDetail.CourseDetail
 import com.example.najahni.views.coursedetaillesson.CourseDetailLessonActivity
 import com.example.najahni.views.home.CourseAdapter
+import com.google.android.material.progressindicator.CircularProgressIndicator
 import com.squareup.picasso.Picasso
 import kotlin.math.roundToInt
 
@@ -23,9 +24,13 @@ class CourseEnrollAdapter (val courses : List<Enroll>) : RecyclerView.Adapter<Co
     class ViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
         val courseimg: ImageView = itemView.findViewById(R.id.courseenrollcardimg)
         val title: TextView = itemView.findViewById(R.id.coursenameenrollid)
-        val progress: ProgressBar = itemView.findViewById(R.id.progress_circular)
+        val lessonsComp: TextView = itemView.findViewById(R.id.lessonsCompleted)
+        val progress: CircularProgressIndicator = itemView.findViewById(R.id.progress_circular)
     }
-
+    private var onClicked:((Int)->Unit)?=null
+    fun setOnClickedListener(action:(Int)->Unit){
+        onClicked=action
+    }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.course_enroll_card,parent,false)
         return CourseEnrollAdapter.ViewHolder(view)
@@ -39,12 +44,10 @@ class CourseEnrollAdapter (val courses : List<Enroll>) : RecyclerView.Adapter<Co
         val course = courses[position]
         Picasso.get().load(Consts.BASE_URL1 + course.courseid.image).into(holder.courseimg)
         holder.title.text = course.courseid.title
-        holder.progress.progress = course.progress.roundToInt() * 100
+        holder.lessonsComp.text = "${course.courseid.lesson_number} lessons"
+        holder.progress.progress = (holder.progress.max * course.progress).roundToInt()
         holder.itemView.setOnClickListener {
-            val intent = Intent(holder.itemView.context, CourseDetailLessonActivity::class.java)
-            intent.putExtra(Consts.SELECTED_COURSELESSON_INTENT, course)
-            //TODO("Put Enroll instead of course")
-            it.context.startActivity(intent)
+            onClicked?.invoke(position)
         }
     }
 }

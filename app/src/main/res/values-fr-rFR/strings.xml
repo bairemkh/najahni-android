@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Najahni</string>
+    <string name="login">Connection</string>
+    <string name="send">Envoye</string>
+    <string name="home">Acceuil</string>
+    <string name="mycourses">Mes coures</string>
+    <string name="profile">Profile</string>
+</resources>

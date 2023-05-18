@@ -20,6 +20,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".views.profile.Settings"
+            android:exported="false" />
+        <activity
             android:name=".views.chat.DiscussionActivity"
             android:exported="false" />
         <activity
@@ -87,8 +90,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <service android:name=".utils.SocketHandler"/>
 
+        <service android:name=".utils.SocketHandler" />
     </application>
 
 </manifest>

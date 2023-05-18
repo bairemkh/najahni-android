@@ -39,6 +39,12 @@ class ProfileFragment : Fragment() {
                 it?.startActivity(intent)
             }
         }
+        view.findViewById<LinearLayout>(R.id.settings).setOnClickListener {
+            activity.let {
+                val intent = Intent(it,Settings::class.java)
+                it?.startActivity(intent)
+            }
+        }
         view.findViewById<LinearLayout>(R.id.logout).setOnClickListener {
             activity.let {
                 val sharedPreferences: SharedPreferences = it?.getSharedPreferences(SharedPrefsNajahni.SHARED_PREFS, Context.MODE_PRIVATE)!!

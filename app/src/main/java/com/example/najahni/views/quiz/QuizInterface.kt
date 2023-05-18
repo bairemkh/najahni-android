@@ -82,6 +82,7 @@ class QuizInterface : AppCompatActivity() {
                     val intent = Intent(this@QuizInterface, QuizResult::class.java)
                     timer.cancel()
                     intent.putExtra("answers", HashMap(answers))
+                    intent.putExtra("courseId", course.id)
                     startActivity(intent)
                     finish()
                 }
