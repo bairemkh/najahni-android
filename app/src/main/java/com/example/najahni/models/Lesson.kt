@@ -7,7 +7,6 @@ import com.google.gson.JsonObject
 data class Lesson(val id:String?=null,var title:String,var video:String,var duration: Int):java.io.Serializable{
     companion object{
         fun jsonToSection(jsonObject: JsonObject):Lesson{
-            Log.e("json:",jsonObject.toString())
             return Lesson(
                 jsonObject.get("_id").asString
                 ,jsonObject.get("title").asString

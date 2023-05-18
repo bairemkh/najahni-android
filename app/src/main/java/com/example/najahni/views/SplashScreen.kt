@@ -26,6 +26,7 @@ class SplashScreen : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        SharedPrefsNajahni.initializeAppLanguage(this)
         setContentView(R.layout.activity_splash_screen)
         val sharedPreferences: SharedPreferences = getSharedPreferences(SharedPrefsNajahni.SHARED_PREFS, Context.MODE_PRIVATE)
         val token = SharedPrefsNajahni.getToken(sharedPreferences)

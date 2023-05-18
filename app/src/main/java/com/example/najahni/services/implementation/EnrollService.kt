@@ -49,6 +49,7 @@ object EnrollService : IService<Enroll> {
                             o.asJsonObject
                         )
                     }
+                    Log.e("enroll","$courses")
                     returningResponse(200, courses)
                 } else {
                     Log.e("response 302"," ====> ${response.body()?.string().orEmpty()}")
@@ -108,6 +109,18 @@ object EnrollService : IService<Enroll> {
     }
     fun progress(courseId: String,lessonId:String,token: String,onResult:(Int)->Unit){
         api.doProgress(token,courseId,lessonId).enqueue(object:Callback<ResponseBody>{
+            override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
+                onResult(response.code())
+            }
+
+            override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+                onResult(0)
+            }
+
+        })
+    }
+    fun sendCertificate(courseId: String,token: String,onResult:(Int)->Unit){
+        api.getCertificate(token,courseId).enqueue(object:Callback<ResponseBody>{
             override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
                 onResult(response.code())
             }

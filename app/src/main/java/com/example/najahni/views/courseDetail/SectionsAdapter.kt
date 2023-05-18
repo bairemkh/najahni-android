@@ -1,5 +1,6 @@
 package com.example.najahni.views.courseDetail
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,10 +16,13 @@ class SectionsAdapter(val list: List<Section>,val isOwned:Boolean,val courseId:S
         val numberOfLessons: TextView = itemView.findViewById(R.id.numberOfLessonsSectionCard)
         val recyclerView: RecyclerView = itemView.findViewById(R.id.lessonsListRV)
     }
-
+    private var onClicked:((Boolean)->Unit)?=null
+    fun setOnClickedListener(action:(Boolean)->Unit){
+        onClicked=action
+    }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.section_card, parent, false)
-        return SectionsAdapter.ViewHolder(view)
+        return ViewHolder(view)
     }
 
     override fun getItemCount(): Int {
@@ -33,7 +37,13 @@ class SectionsAdapter(val list: List<Section>,val isOwned:Boolean,val courseId:S
             list[position].lessons,
             courseId,
             isOwned
-        )
+        ).apply {
+            setOnClickedListener {
+                onClicked?.invoke(it)
+                Log.i("play","Clicked")
+            }
+        }
+
 
 
     }
