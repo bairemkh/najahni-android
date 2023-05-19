@@ -3,6 +3,7 @@ package com.example.najahni.utils
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.Service
+import android.content.Context
 import android.content.Intent
 import android.os.Build
 import android.os.IBinder
@@ -91,24 +92,24 @@ class SocketHandler() : Service() {
           Log.e("notif","${data[0]}")
           //val dataJson = gson.fromJson(data[0].toString(), JsonObject::class.java).getAsJsonObject("msg")["msgContent"].asString
           //val sender = gson.fromJson(data[0].toString(), JsonObject::class.java).getAsJsonObject("msg")["senderid"].asString
+          if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+              val channelId = "SocketServiceChannel"
+              val channelName = "SocketServiceChannel"
+              val importance = NotificationManager.IMPORTANCE_DEFAULT
+
+              val channel = NotificationChannel(channelId, channelName, importance)
+
+              val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+              notificationManager.createNotificationChannel(channel)
+          }
           val notification = NotificationCompat.Builder(this, "SocketServiceChannel")
               .setContentTitle("New Message from ")
               .setContentText("text")
               .setSmallIcon(R.drawable.logo_najahni)
-              .setOngoing(true)
               .build()
-          //startForeground(1, notification)
+
+          startForeground(1, notification)
       }
-            /*val notification = NotificationCompat.Builder(this, "SocketServiceChannel")
-                .setContentTitle("")
-                .setContentText("")
-                .setSmallIcon(R.drawable.ic_launcher_foreground)
-                .setOngoing(true)
-                .build()
-
-            startForeground(1, notification)*/
-
-
     }
 
     override fun onDestroy() {
