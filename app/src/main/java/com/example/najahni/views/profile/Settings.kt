@@ -16,7 +16,7 @@ import com.example.najahni.utils.SharedPrefsNajahni
 class Settings : AppCompatActivity() {
     private lateinit var alertDialog: AlertDialog
 
-    val list = mapOf<String, String>(Pair("en", "English"), Pair("fr", "French"))
+    val list = mapOf(Pair("en", "English"), Pair("fr", "French"))
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

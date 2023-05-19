@@ -39,6 +39,7 @@
                     android:textColor="@color/primary_color"
                     />
                     <ImageView
+                        android:id="@+id/sendFirstMsgBtn"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:layout_weight="2"

@@ -8,6 +8,7 @@ import android.os.Build
 import android.os.IBinder
 import android.util.Log
 import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
 import com.example.najahni.R
 import com.example.najahni.models.CurrentUser
 import com.example.najahni.models.Message
@@ -96,8 +97,7 @@ class SocketHandler() : Service() {
               .setSmallIcon(R.drawable.logo_najahni)
               .setOngoing(true)
               .build()
-
-          startForeground(1, notification)
+          //startForeground(1, notification)
       }
             /*val notification = NotificationCompat.Builder(this, "SocketServiceChannel")
                 .setContentTitle("")
