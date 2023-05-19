@@ -27,7 +27,7 @@ class ReviewFragment(val course:Course) : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view= inflater.inflate(R.layout.fragment_review, container, false)
-        view.findViewById<ImageView>(R.id.startdiscussion).setOnClickListener {
+        view.findViewById<ImageView>(R.id.sendFirstMsgBtn).setOnClickListener {
             val intent = Intent(activity, DiscussionActivity::class.java)
             startActivity(intent)
         }

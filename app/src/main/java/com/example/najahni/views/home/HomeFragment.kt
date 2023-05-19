@@ -47,7 +47,7 @@ class HomeFragment : Fragment() {
     ): View? {
         val view : View = inflater.inflate(R.layout.fragment_home, container, false)
         val toolbar = view.findViewById<Toolbar>(R.id.toolbar)
-        toolbar.inflateMenu(R.menu.appbar_menu)
+       // toolbar.inflateMenu(R.menu.appbar_menu)
         toolbar.setOnMenuItemClickListener {
             when(it.itemId){
                 R.id.nav_messages -> {
