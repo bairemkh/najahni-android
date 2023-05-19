@@ -27,10 +27,6 @@ class ReviewFragment(val course:Course) : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view= inflater.inflate(R.layout.fragment_review, container, false)
-        view.findViewById<ImageView>(R.id.startdiscussion).setOnClickListener {
-            val intent = Intent(activity, DiscussionActivity::class.java)
-            startActivity(intent)
-        }
         view.findViewById<TextView>(R.id.userNameCourseReview).text = "${course.idOwner.firstname} ${course.idOwner.lastname}"
         view.findViewById<TextView>(R.id.descriptionCourseReview).text = course.description
         Picasso.get().load(Consts.BASE_URL1 + course.idOwner.image).into(view.findViewById<ImageView>(R.id.userImgCourseReview))
