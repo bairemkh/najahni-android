@@ -31,7 +31,7 @@ class CourseDetailLessonActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_course_detail_lesson)
         val toolbar = findViewById<androidx.appcompat.widget.Toolbar>(R.id.toolbar_detail)
-        toolbar.inflateMenu(R.menu.course_menu)
+        //toolbar.inflateMenu(R.menu.course_menu)
 
         val recView = findViewById<RecyclerView>(R.id.recyclerViewcourselessondetail)
         var selectedEnroll = intent.getSerializableExtra(Consts.SELECTED_COURSELESSON_INTENT) as Enroll
@@ -107,7 +107,7 @@ class CourseDetailLessonActivity : AppCompatActivity() {
                     dialog.dismiss()
 
                 }else{
-                    Toast.makeText(this,"Course not found !",Toast.LENGTH_LONG).show()
+                    Toast.makeText(this,"Already reviewed !",Toast.LENGTH_LONG).show()
                 }
             }
 

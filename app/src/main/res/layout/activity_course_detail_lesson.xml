@@ -25,7 +25,7 @@
                 android:layout_height="wrap_content"
                 android:background="@color/primary_color"
                 android:elevation="1dp"
-                android:paddingEnd="20dp"
+                android:paddingEnd="40dp"
                 android:minHeight="?attr/actionBarSize"
                 app:menu="@menu/course_menu">
 
@@ -38,7 +38,7 @@
                         android:id="@+id/courseTitle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
+                        android:layout_marginStart="0dp"
                         android:gravity="center_vertical"
                         android:fontFamily="@font/montserrat_bold"
                         android:text="Welcome"
