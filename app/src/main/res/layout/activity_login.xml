@@ -4,10 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Login">
+    android:background="@color/white"
+    tools:context=".views.login.LoginView">
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <ImageView
             android:id="@+id/imageView"
@@ -38,13 +40,14 @@
             android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="40dp"
+            android:layout_marginHorizontal="20dp"
             android:layout_marginTop="80dp"
             android:orientation="vertical"
             app:layout_constraintTop_toBottomOf="@+id/textView"
             tools:layout_editor_absoluteX="40dp">
 
             <EditText
+                android:id="@+id/loginEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="30dp"
@@ -57,19 +60,32 @@
                 android:paddingVertical="15dp"
                 android:textSize="18sp" />
 
-            <EditText
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/edit_text_background"
-                android:elevation="2dp"
-                android:fontFamily="@font/montserrat_regular"
-                android:hint="Password"
-                android:inputType="textPassword"
-                android:paddingHorizontal="20dp"
-                android:paddingVertical="15dp"
-                android:textSize="18sp" />
+                android:background="@color/white"
+                app:boxBackgroundMode="none"
+                app:hintEnabled="false"
+                app:passwordToggleEnabled="true"
+                app:passwordToggleTint="@color/primary_color">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/loginPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/edit_text_background"
+                    android:elevation="2dp"
+                    android:ems="10"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:hint="@string/password"
+                    android:inputType="textPassword"
+                    android:paddingHorizontal="20dp"
+                    android:paddingVertical="15dp"
+                    android:textSize="18sp" />
+            </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
+                android:id="@+id/forgetpwd"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -99,6 +115,7 @@
                 android:textSize="16dp" />
 
             <TextView
+                android:id="@+id/toSignUp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/montserrat_bold"
@@ -108,16 +125,34 @@
         </LinearLayout>
 
         <Button
+            android:id="@+id/loginBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="50dp"
             android:layout_marginTop="44dp"
             android:background="@drawable/filter_background"
-            android:layout_marginHorizontal="30dp"
-            android:paddingVertical="8dp"
             android:fontFamily="@font/montserrat_bold"
-            android:textSize="20sp"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
-            android:text="Login"
-            tools:layout_editor_absoluteX="0dp" />
+            android:gravity="center"
+            android:paddingVertical="5dp"
+            android:text="@string/login"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
+        <Button
+            android:id="@+id/google_login_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="10sp"
+            android:backgroundTint="@color/white"
+            android:paddingLeft="10dp"
+            android:drawableEnd="@drawable/google"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/loginBtn" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

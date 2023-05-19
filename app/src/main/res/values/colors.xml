@@ -3,6 +3,9 @@
     <color name="primary_color">#FF5B50D8</color>
     <color name="secondary_color">#FF55AC76</color>
     <color name="third_color">#FFD8B64F</color>
+    <color name="danger">#A7001E</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="selectedCard">#F1F1F1</color>
+    <color name="accentColor">#bebaf2</color>
 </resources>
