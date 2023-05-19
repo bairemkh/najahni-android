@@ -10,6 +10,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -48,6 +49,7 @@ class CartFragment : Fragment() {
             if(it == null) {
                 Log.e("Cart","nulll")
             }else{
+                listCart = it
                 val adapter = CartAdapter(it)
                 adapter.notifyDataSetChanged()
                 recycler.adapter = adapter
@@ -69,9 +71,19 @@ class CartFragment : Fragment() {
         })
 
         view.findViewById<AppCompatButton>(R.id.cartActivityCheckoutBtn).setOnClickListener {
-            activity.let {
-                val intent = Intent(it, PayementWebViewActivity::class.java)
-                it?.startActivity(intent)
+            cartViewModel.payement(totalPrice.toString())
+        }
+        cartViewModel.payementSucess.observe(viewLifecycleOwner) {
+            if (it) {
+                activity.let {
+                    val intent = Intent(it, PayementWebViewActivity::class.java)
+                    intent.putExtra("url",cartViewModel.message.value)
+                    intent.putExtra("courseID",listCart.get(0)._id)
+                    it?.startActivity(intent)
+                }
+            } else {
+                Toast.makeText(activity, cartViewModel.message.value, Toast.LENGTH_LONG).show()
+
             }
         }
         return view
