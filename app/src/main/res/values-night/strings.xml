@@ -1,62 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Najahni</string>
+    <string name="app_name" translatable="false">Najahni</string>
     <string name="login">Login</string>
     <string name="send">Send</string>
-    <string name="edit" translatable="false">Edit</string>
-    <string name="password" translatable="false">Password</string>
+    <string name="edit">Edit</string>
+    <string name="password">Password</string>
     <string name="home">Home</string>
     <string name="mycourses">My courses</string>
-    <string name="cart" translatable="false">Cart</string>
-    <string name="favorite" translatable="false">Favorite</string>
+    <string name="cart">Cart</string>
+    <string name="favorite">Favorite</string>
     <string name="profile">profil</string>
-    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
-    <string name="let_s_create_a_n_new_account" translatable="false">Let\'s Create a \n new account</string>
-    <string name="name" translatable="false">Name</string>
-    <string name="last_name" translatable="false">Last Name</string>
-    <string name="confirm_your_password" translatable="false">Confirm your password</string>
-    <string name="create_account" translatable="false">Create Account</string>
-    <string name="next" translatable="false">Next</string>
-    <string name="we_re_one_step_forward" translatable="false">We\'re One Step Forward</string>
-    <string name="use_najahni_as_a_student" translatable="false">Use Najahni As A Student</string>
-    <string name="use_najahni_as_a_trainer" translatable="false">Use Najahni As A Trainer</string>
-    <string name="explain_role" translatable="false">if your goal is simply to learn, you will be welcomed as a student.\nhowever, if your goal is to teach people, share your knowledge and earn some extra money, you can connect as a trainer.</string>
-    <string name="firstname" translatable="false">Firstname</string>
-    <string name="lastname" translatable="false">Lastname</string>
-    <string name="forgot_password" translatable="false">Forgot your password ?</string>
-    <string name="forgot_description" translatable="false">If you have your password, you have to type it in and finaly you receive an email to retrieve it.First you get a 4 digit pin code and then you put it in the form</string>
-    <string name="otp" translatable="false">Type the code to reset your password</string>
-    <string name="otp_description" translatable="false">Otp</string>
-    <string name="reset_password" translatable="false">Reset your password</string>
-    <string name="change_password_des" translatable="false">Change your password</string>
-    <string name="old_password" translatable="false">Enter your old password</string>
-    <string name="new_password" translatable="false">Enter new password</string>
-    <string name="confirm_password" translatable="false">Confirm password</string>
-    <string name="firstname_edit" translatable="false">Enter your firstname</string>
-    <string name="lastname_edit" translatable="false">Enter your lastname</string>
-    <string name="email_edit" translatable="false">Enter your email</string>
-    <string name="change_password" translatable="false">Change your password ?</string>
-    <string name="edit_profile" translatable="false">Edit profile</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="let_s_create_a_n_new_account">Let\'s Create a \n new account</string>
+    <string name="name">Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="confirm_your_password">Confirm your password</string>
+    <string name="create_account">Create Account</string>
+    <string name="next">Next</string>
+    <string name="we_re_one_step_forward">We\'re One Step Forward</string>
+    <string name="use_najahni_as_a_student">Use Najahni As A Student</string>
+    <string name="use_najahni_as_a_trainer">Use Najahni As A Trainer</string>
+    <string name="explain_role">if your goal is simply to learn, you will be welcomed as a student. however, if your goal is to teach people, share your knowledge and earn some extra money, you can connect as a trainer.</string>
+    <string name="firstname">Firstname</string>
+    <string name="lastname">Lastname</string>
+    <string name="forgot_password">Forgot your password ?</string>
+    <string name="forgot_description">If you have your password, you have to type it in and finaly you receive an email to retrieve it.First you get a 4 digit pin code and then you put it in the form</string>
+    <string name="otp">Type the code to reset your password</string>
+    <string name="otp_description">Otp</string>
+    <string name="reset_password">Reset your password</string>
+    <string name="change_password_des">Change your password</string>
+    <string name="old_password">Enter your old password</string>
+    <string name="new_password">Enter new password</string>
+    <string name="confirm_password">Confirm password</string>
+    <string name="firstname_edit">Enter your firstname</string>
+    <string name="lastname_edit">Enter your lastname</string>
+    <string name="email_edit">Enter your email</string>
+    <string name="change_password">Change your password ?</string>
+    <string name="edit_profile">Edit profile</string>
     <string name="default_web_client_id" translatable="false">547830882551-2b52padj2jdim11ru6qv6th499l8b3ge.apps.googleusercontent.com</string>
-    <string name="all_courses" translatable="false">All Courses</string>
-    <string name="recommended_courses" translatable="false">Recommended courses</string>
-    <string name="get_course" translatable="false">Get Course</string>
-    <string name="create_a_new_course" translatable="false">Create a new course</string>
-    <string name="course_title" translatable="false">Course title</string>
-    <string name="price" translatable="false">Price</string>
-    <string name="returnBack" translatable="false">Return</string>
-    <string name="create_lessons" translatable="false">Create Lessons</string>
-    <string name="add_a_proposition" translatable="false">Add a Proposition</string>
-    <string name="confirm" translatable="false">Confirm</string>
-    <string name="lesson_details" translatable="false">Lesson Details</string>
-    <string name="lesson_name" translatable="false">lesson name</string>
-    <string name="click_here_to_import_the_lesson_s_video" translatable="false">Click here to import the lesson\'s video</string>
-    <string name="return_to_home" translatable="false">Return to Home</string>
-    <string name="the_answers" translatable="false">The answers :</string>
-    <string name="congratulations_we_re_so_proud_of_you" translatable="false">Congratulations, we\'re so proud of you. You have passed this quiz successfully. you will receive an email containing your compilation certificate.</string>
-    <string name="congratulations_you_passed_the_quiz" translatable="false">Congratulations, You passed the Quiz</string>
-    <string name="refused_quiz" translatable="false">Sorry, You didn\'t passed the Quiz</string>
-    <string name="refused_quiz_desc" translatable="false">Sorry, You didn\'t passed the Quiz. i think you\'ll do better next time just prepare yourself better next time okay ?</string>
-    <string name="display_language" translatable="false">Display Language</string>
-    <string name="dark_mode" translatable="false">Dark Mode</string>
+    <string name="all_courses">All Courses</string>
+    <string name="recommended_courses">Recommended courses</string>
+    <string name="get_course">Get Course</string>
+    <string name="create_a_new_course">Create a new course</string>
+    <string name="course_title">Course title</string>
+    <string name="price">Price</string>
+    <string name="returnBack">Return</string>
+    <string name="create_lessons">Create Lessons</string>
+    <string name="add_a_proposition">Add a Proposition</string>
+    <string name="confirm">Confirm</string>
+    <string name="lesson_details">Lesson Details</string>
+    <string name="lesson_name">lesson name</string>
+    <string name="click_here_to_import_the_lesson_s_video">Click here to import the lesson\'s video</string>
+    <string name="return_to_home">Return to Home</string>
+    <string name="the_answers">The answers :</string>
+    <string name="congratulations_we_re_so_proud_of_you">Congratulations, we\'re so proud of you. You have passed this quiz successfully. you will receive an email containing your compilation certificate.</string>
+    <string name="congratulations_you_passed_the_quiz">Congratulations, You passed the Quiz</string>
+    <string name="refused_quiz">Sorry, You didn\'t passed the Quiz</string>
+    <string name="refused_quiz_desc">Sorry, You didn\'t passed the Quiz. i think you\'ll do better next time just prepare yourself better next time okay ?</string>
+    <string name="display_language">Display Language</string>
+    <string name="dark_mode">Dark Mode</string>
 </resources>
