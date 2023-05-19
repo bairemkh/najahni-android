@@ -8,6 +8,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.najahni.R
+import com.example.najahni.models.CurrentUser
 import com.example.najahni.models.User
 import com.example.najahni.models.UserWithMessage
 import com.example.najahni.utils.Consts
@@ -18,6 +19,7 @@ class ContactAdapter(val contacts : List<UserWithMessage>) : RecyclerView.Adapte
     class ViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView){
         val image : CircleImageView = itemView.findViewById(R.id.userContactImage)
         val username : TextView = itemView.findViewById(R.id.userName)
+        val lastmsg :  TextView = itemView.findViewById(R.id.temp)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -33,6 +35,7 @@ class ContactAdapter(val contacts : List<UserWithMessage>) : RecyclerView.Adapte
         val contacts = contacts[position]
         Picasso.get().load(Consts.BASE_URL1 + contacts.user.image).into(holder.image)
         holder.username.text = contacts.user.firstname + " " + contacts.user.lastname
+        holder.lastmsg.text = if (contacts.messages.last().senderid == CurrentUser._id) "You: " +contacts.messages.last().msgContent else contacts.messages.last().msgContent
         holder.itemView.setOnClickListener {
             val intent = Intent(holder.itemView.context,DiscussionActivity::class.java)
             intent.putExtra(Consts.SELECTED_CONTACT_INTENT,contacts)

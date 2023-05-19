@@ -35,7 +35,13 @@ class CompleteFragment : Fragment() {
         viewModel = ViewModelProvider(this)[CoursesViewModel::class.java]
         viewModel.getMyCourses( token) { list ->
             recycler.layoutManager = LinearLayoutManager(activity)
-            recycler.adapter = CourseEnrollAdapter(list.filter { enroll -> enroll.progress == 1f })
+            recycler.adapter = CourseEnrollAdapter(list.filter { enroll -> enroll.progress == 1f }).apply {
+                setOnClickedListener {
+                    val intent = Intent(context, CourseDetailLessonActivity::class.java)
+                    intent.putExtra(Consts.SELECTED_COURSELESSON_INTENT, list[it])
+                    startActivityForResult(intent,200)
+                }
+            }
         }
 
         return view

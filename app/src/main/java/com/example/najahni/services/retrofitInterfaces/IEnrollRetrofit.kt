@@ -19,4 +19,8 @@ interface IEnrollRetrofit {
     fun doProgress(@Header("Authorization") authorization: String, @Path("id") id:String,@Field("lessonid")lessonId:String): Call<ResponseBody>
     @POST("enroll/certif/{id}")
     fun getCertificate(@Header("Authorization") authorization: String, @Path("id") id:String): Call<ResponseBody>
+
+    @POST("review/add-review/{id}")
+    @FormUrlEncoded
+    fun sendReview(@Header("Authorization") authorization: String,@Path("id") id: String,@Field("ratingComp") ratingComp:Int ,@Field("ratingTrainer") ratingTrainer:Int,@Field("ratingContent") ratingContent:Int):Call<ResponseBody>
 }

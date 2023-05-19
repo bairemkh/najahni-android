@@ -40,6 +40,7 @@ class DiscussionActivity : AppCompatActivity() {
         findViewById<TextView>(R.id.tvUserName).text = selectedContact.user.firstname + " " + selectedContact.user.lastname
         val recycler = findViewById<RecyclerView>(R.id.chatRecyclerView)
         recycler.layoutManager = LinearLayoutManager(applicationContext)
+        recycler.scrollToPosition(selectedContact.messages.size - 1)
         findViewById<ImageButton>(R.id.btnSendMessage).setOnClickListener {
             val message = findViewById<EditText>(R.id.etMessage).text
             SocketHandler.sendMessage(message.toString(),selectedContact.user._id.toString())

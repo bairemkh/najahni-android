@@ -12,7 +12,7 @@ import androidx.lifecycle.Observer
 import com.example.najahni.R
 import com.example.najahni.models.CurrentUser
 import com.example.najahni.roomDB.AppDatabase
-import com.example.najahni.utils.Consts.ACTION_LANGUAGE_CHANGE
+//import com.example.najahni.utils.Consts.ACTION_LANGUAGE_CHANGE
 import com.example.najahni.utils.SharedPrefsNajahni
 import com.example.najahni.utils.SocketHandler
 import com.example.najahni.views.BaseActivity

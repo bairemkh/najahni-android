@@ -131,6 +131,18 @@ object EnrollService : IService<Enroll> {
 
         })
     }
+    fun sendReview(token: String,courseId: String,ratingCamp: Int,ratingTrainer: Int,ratingContent: Int,onResult: (Int) -> Unit){
+        api.sendReview(token,courseId,ratingCamp,ratingTrainer,ratingContent).enqueue(object:Callback<ResponseBody>{
+            override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
+                onResult(response.code())
+            }
+
+            override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+                onResult(0)
+            }
+
+        })
+    }
     fun makeCourseFromJson(jsonObject: JsonObject): Enroll {
         return Enroll(jsonObject.get("_id").asString,
             jsonObject.get("userid").asString,

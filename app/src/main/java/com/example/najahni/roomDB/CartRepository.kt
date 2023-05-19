@@ -36,5 +36,11 @@ class CartRepository {
                 appDatabase!!.cartDao().delete(cart)
             }
         }
+        fun getOne(context: Context,id:String) {
+            appDatabase = initializeDB(context)
+            CoroutineScope(Dispatchers.IO).launch{
+                appDatabase!!.cartDao().delete(appDatabase!!.cartDao().findById(id))
+            }
+        }
     }
 }

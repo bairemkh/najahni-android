@@ -16,11 +16,10 @@ object Consts {
     const val SELECTED_LESSON_INTENT="selectedlesson"
     const val SELECTED_QUIZ_INTENT="selectedQuiz"
     const val EDIT_MODE="editMode"
-    const val ACTION_LANGUAGE_CHANGE = "com.example.najahni.ACTION_LANGUAGE_CHANGE"
-    val BASE_URL1 = "http://192.168.1.52:9090"
-    //val BASE_URL1 = "http://172.16.1.72:9090"
-    val BASE_URL="http://192.168.1.52:9090/"
-    //val BASE_URL="http://172.16.1.72:9090/"
+    //val BASE_URL1 = "http://192.168.1.52:9090"
+val BASE_URL1 = "http://192.168.1.13:9090"
+    //val BASE_URL="http://192.168.1.52:9090/"
+    val BASE_URL="http://192.168.1.13:9090/"
     val retrofit = Retrofit.Builder()
         .baseUrl(BASE_URL)
         .addConverterFactory(GsonConverterFactory.create(GsonBuilder().setLenient().create()))

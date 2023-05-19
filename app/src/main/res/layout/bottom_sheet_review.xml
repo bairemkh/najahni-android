@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/dialog_bg">
+
+    <TextView
+        android:id="@+id/reviewText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="Add Review"
+        android:textColor="@color/black"
+        android:layout_marginTop="5dp"
+        android:textSize="25dp"
+        android:textStyle="bold"/>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Note Comprehenison"
+            android:fontFamily="@font/montserrat_bold"
+            android:textColor="@color/black"
+            android:textSize="16sp"/>
+        <androidx.appcompat.widget.AppCompatRatingBar
+            android:id="@+id/rate_comp"
+            android:numStars="5"
+            android:max="5"
+            android:stepSize="1.0"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:outlineSpotShadowColor="@color/primary_color"
+            android:isIndicator="false" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Note Trainer"
+            android:fontFamily="@font/montserrat_bold"
+            android:textColor="@color/black"
+            android:textSize="16sp"/>
+        <androidx.appcompat.widget.AppCompatRatingBar
+            android:id="@+id/rate_trainer"
+            android:numStars="5"
+            android:max="5"
+            android:stepSize="1.0"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:outlineSpotShadowColor="@color/primary_color"
+            android:isIndicator="false"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Note Content"
+            android:fontFamily="@font/montserrat_bold"
+            android:textColor="@color/black"
+            android:textSize="16sp"/>
+        <androidx.appcompat.widget.AppCompatRatingBar
+            android:id="@+id/rate_content"
+            android:numStars="5"
+            android:max="5"
+            android:stepSize="1.0"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:outlineSpotShadowColor="@color/primary_color"
+            android:isIndicator="false"/>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/send_review"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Send review"
+        android:textAllCaps="false" />
+
+
+
+</LinearLayout>

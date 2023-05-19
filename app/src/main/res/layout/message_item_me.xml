@@ -25,7 +25,7 @@
             android:fontFamily="@font/montserrat_regular"
             android:padding="5dp"
             android:layout_marginEnd="10dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="0dp"
             android:layout_marginStart="120dp"
             android:textColor="@color/white"
             android:background="@drawable/item_right_side_background"
